@@ -8,13 +8,43 @@
 import SwiftUI
 
 struct AddStamp: View {
+    @Environment(\.dismiss) var dismissView
+    
+    @ObservedObject var wallet: Wallet
+    
+     func addStamp(stampcard: StampCard) {
+        let newStamp = Stamp(timeAndDate: Date.now)
+         
+         if wallet.activeCard.stampCard.count < 6 {
+             wallet.activeCard.stampCard.append(newStamp)
+             print("AddStamp:\(newStamp) added to \(wallet.activeCard)")
+         
+             if wallet.activeCard.stampCard.count == 6 {
+                 print("AddStamp: \(wallet.activeCard) is full. Creating a new stampcard")
+                 wallet.createNewStampCard()
+                 //wallet.activeCard.stampCard.append(newStamp)
+             }
+         }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            VStack{
+                Text("STAMP ADDED")
+                    .padding()
+                Button("OK") { dismissView() }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+            }
+        }
+        .onAppear(){
+            addStamp(stampcard: wallet.activeCard)
+        }
     }
 }
 
 struct AddStamp_Previews: PreviewProvider {
     static var previews: some View {
-        AddStamp()
+        AddStamp(wallet: Wallet())
     }
 }
