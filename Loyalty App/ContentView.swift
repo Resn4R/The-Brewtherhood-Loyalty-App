@@ -19,6 +19,7 @@ struct StampButton: ButtonStyle {
 }
 
 struct stampIcon: View {
+    var isShowing = false
     var body: some View {
         Image("stamp icon")
             .resizable()
@@ -27,11 +28,7 @@ struct stampIcon: View {
             .offset(x:CGFloat.random(in: -30...30), y: CGFloat.random(in: -30...30))
     }
 }
-//func showStampIcon (from card: [Stamp]) -> some View {
-//    ForEach (0..<card.count) {_ in
-//        stampIcon()
-//    }
-//}
+
 
 struct ContentView: View {
     @StateObject var wallet = Wallet()
@@ -104,10 +101,9 @@ struct ContentView: View {
                                                 .scale(x: 0.75, y: 0.75)
                                                 .offset(x: CGFloat(column) ,y: CGFloat(row))
                                             //stamp icon
-                                                
-                                            stampIcon()
-                                                
-                                                
+                                            if wallet.activeCard.stampCard.count > (row + column * 3) {
+                                                stampIcon()
+                                            }
                                         }
                                     }
                                 }
@@ -116,14 +112,14 @@ struct ContentView: View {
                             Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
                                 .shadow(radius: 0)
                                 .offset(y:-10)
-
+                            
+                            //free coffee image
                             ZStack{
                                 Group {
                                     Circle()
                                         .stroke(lineWidth: 3)
                                         .scale(x: 0.75, y: 0.75)
                                         .offset(x: 3, y: -30)
-                                    //free coffee image
                                     RoundedRectangle(cornerRadius: 20)
                                         .size(width: 185, height: 60)
                                         .offset(x: 102, y:17)
