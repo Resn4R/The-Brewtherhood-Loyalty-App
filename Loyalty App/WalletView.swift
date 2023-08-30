@@ -33,9 +33,6 @@ struct WalletView: View {
                 }
             }
         }
-        .onAppear(){
-            //addStamp(stampcard: wallet.activeCard())
-        }
     }
 }
 

@@ -7,23 +7,13 @@
 
 import SwiftUI
 
-struct RedeemStampCard: View {
+struct RedeemCardView: View {
     @Environment(\.dismiss) var dismissView
     
     @ObservedObject var wallet: Wallet
     
-    enum error: Error {
-        case noCompleteCardPresent, noActiveCard, activeCardAlreadyPresent
-    }
-    @State var errorMessage = "You don't have any complete stamp card. Complete a stamp card to redeem a free coffee."
-    @State var showErrorAlert = false
-    @State var errorTitle = "Error"
-    
     func redeemFreeCoffee() {
         let redeem = wallet.removeCompleteCard()
-        if  !redeem {
-            showErrorAlert.toggle()
-        }
     }
   
     
@@ -37,13 +27,6 @@ struct RedeemStampCard: View {
                         }
                     }
                 }
-                .alert(errorTitle, isPresented: $showErrorAlert) {
-                    Button("OK"){
-                        dismissView()
-                    }
-                } message: {
-                    Text(errorMessage)
-                }
                 .onAppear {
                     redeemFreeCoffee()
                 }
@@ -53,6 +36,6 @@ struct RedeemStampCard: View {
 
 struct RedeemStamp_Previews: PreviewProvider {
     static var previews: some View {
-        RedeemStampCard(wallet: Wallet())
+        RedeemCardView(wallet: Wallet())
     }
 }

@@ -13,7 +13,11 @@ struct StampButton: ButtonStyle {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .padding()
+                .tint(.red)
+            Rectangle()
                 .tint(.white)
+                .offset(y: -100)
+                
         }
     }
 }
@@ -36,10 +40,14 @@ struct ContentView: View {
     @State private var showWalletViewSheet = false
     @State private var activeCardStampCount = 0
     
+    @State private var showStampDetails = false
+    
+    private var backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [Color(red: 50/255, green: 50/255, blue: 50/255)], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 VStack {
                     Text("") //IT FIXES THE ALIGNMENTS - DO NOT REMOVE
@@ -101,8 +109,12 @@ struct ContentView: View {
                                                 .scale(x: 0.75, y: 0.75)
                                                 .offset(x: CGFloat(column) ,y: CGFloat(row))
                                             //stamp icon
-                                            if wallet.activeCard.stampCard.count > (row + column * 3) {
-                                                stampIcon()
+                                            if activeCardStampCount > (row + column * 3){
+                                                Button {
+                                                    showStampDetails.toggle()
+                                                } label: {
+                                                    stampIcon()
+                                                }
                                             }
                                         }
                                     }
@@ -140,7 +152,7 @@ struct ContentView: View {
                         
                     }
                         
-                    NavigationLink(destination: MockCameraView(wallet: wallet), label: {
+                    NavigationLink(destination: CameraView(wallet: wallet), label: {
                         Text("Scan QR Code")
                             .bold()
                             .fontDesign(.rounded)
@@ -170,19 +182,20 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.top)
                 
                 .onAppear(){
-                    activeCardStampCount = wallet.activeCard.stampCard.count
                     if wallet.wallet.isEmpty {
-                        print("wallet empty, creating new stampcard")
+                        print("Main menu.onAppear: wallet empty, creating new stampcard")
                         wallet.createNewStampCard()
-                        print("new stampcard created ")
+                        print("Main menu.onAppear: new stampcard created ")
                     }
                     else {
                         print("""
-                            Wallet not empty, no new stampcard created
+                            Main menu.onAppear: Wallet not empty, no new stampcard created
                             \(wallet.wallet.count) stampcard present
-                            \(wallet.activeCard.stampCard.count)
+                            \(wallet.activeCard.stampCard.count) stamps in active card
                             """)
                     }
+                    activeCardStampCount = wallet.activeCard.stampCard.count
+                    print("Main menu.onAppear: activeCardStampCount: \(activeCardStampCount)")
                 }
                 
                 .sheet(isPresented: $showWalletViewSheet) {

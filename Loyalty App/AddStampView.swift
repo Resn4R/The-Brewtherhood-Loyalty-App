@@ -1,5 +1,5 @@
 //
-//  AddStamp.swift
+//  AddStampView.swift
 //  Loyalty App
 //
 //  Created by Vito Borghi on 21/08/2023.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct AddStamp: View {
+struct AddStampView: View {
     @Environment(\.dismiss) var dismissView
     
     @ObservedObject var wallet: Wallet
     
-     func addStamp(stampcard: StampCard) {
+    func addStamp(stampcard: StampCard) {
         let newStamp = Stamp(timeAndDate: Date.now)
          
          if wallet.activeCard.stampCard.count < 6 {
@@ -22,7 +22,6 @@ struct AddStamp: View {
              if wallet.activeCard.stampCard.count == 6 {
                  print("AddStamp: \(wallet.activeCard) is full. Creating a new stampcard")
                  wallet.createNewStampCard()
-                 //wallet.activeCard.stampCard.append(newStamp)
              }
          }
     }
@@ -45,6 +44,6 @@ struct AddStamp: View {
 
 struct AddStamp_Previews: PreviewProvider {
     static var previews: some View {
-        AddStamp(wallet: Wallet())
+        AddStampView(wallet: Wallet())
     }
 }

@@ -12,24 +12,6 @@ class StampCard: Sequence, IteratorProtocol {
     var count: Int = 0
     
     @Published var stampCard = [Stamp]()
-//    {
-//        didSet {
-//            let encoder = JSONEncoder()
-//            if let encoded = try? encoder.encode(stampCard) {
-//                UserDefaults.standard.set(encoded, forKey: "StampCard")
-//            }
-//        }
-//    }
-//
-//    init() {
-//        if let savedStamps = UserDefaults.standard.data(forKey: "StampCard") {
-//            if let decodedStamps = try? JSONDecoder().decode([Stamp].self, from: savedStamps) {
-//                stampCard = decodedStamps
-//                return
-//            }
-//        }
-//        stampCard = []
-//    }
     
     init(stampCard: [Stamp] = [Stamp]()) {
         self.stampCard = stampCard
