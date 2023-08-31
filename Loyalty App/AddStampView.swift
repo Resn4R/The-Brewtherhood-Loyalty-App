@@ -12,6 +12,8 @@ struct AddStampView: View {
     
     @ObservedObject var wallet: Wallet
     
+    var backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    
     func addStamp(stampcard: StampCard) {
         let newStamp = Stamp(timeAndDate: Date.now)
          
@@ -28,16 +30,46 @@ struct AddStampView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
-                Text("STAMP ADDED")
-                    .padding()
-                Button("OK") { dismissView() }
+            ZStack {
+                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+
+                VStack{
+                    Spacer()
+                    Text("Stamp Added!")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .fontDesign(.serif)
+                    
+                    Spacer()
+                    Button {
+                        dismissView()
+                    } label: {
+                        Text("OK")
+                            .foregroundColor(.black)
+                            .fontDesign(.serif)
+                    }
                     .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
+                    .tint(.white)
+                    Spacer()
+                }
+                
             }
-        }
-        .onAppear(){
-            addStamp(stampcard: wallet.activeCard)
+            
+            .onAppear(){
+                addStamp(stampcard: wallet.activeCard)
+            }
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismissView()
+                    } label: {
+                        Text("Done")
+                            .foregroundColor(.white)
+                    }
+                }
+            }
         }
     }
 }
