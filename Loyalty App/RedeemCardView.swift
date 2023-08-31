@@ -9,27 +9,54 @@ import SwiftUI
 
 struct RedeemCardView: View {
     @Environment(\.dismiss) var dismissView
-    
     @ObservedObject var wallet: Wallet
     
+    var backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+
+    
     func redeemFreeCoffee() {
-        let redeem = wallet.removeCompleteCard()
+        _ = wallet.removeCompleteCard()
     }
-  
     
     var body: some View {
         NavigationView{
-            Text("Redeem Coffee")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Done") {
-                            dismissView()
+            ZStack {
+                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+
+                VStack{
+                    Spacer()
+                    Text("Free drink redeemed successfully!")
+                        .foregroundColor(.white)
+                        .font(.title)
+                        .fontDesign(.serif)
+                    
+                        Spacer()
+                    Button {
+                        dismissView()
+                    } label: {
+                        Text("OK")
+                            .foregroundColor(.black)
+                            .fontDesign(.serif)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.white)
+                    Spacer()
+                }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                dismissView()
+                            } label: {
+                                Text("Done")
+                                    .foregroundColor(.white)
+                            }
                         }
                     }
-                }
                 .onAppear {
                     redeemFreeCoffee()
                 }
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainMenu.swift
 //  Loyalty App
 //
 //  Created by Vito Borghi on 19/08/2023.
@@ -34,7 +34,7 @@ struct stampIcon: View {
 }
 
 
-struct ContentView: View {
+struct MainMenuView: View {
     @StateObject var wallet = Wallet()
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
@@ -214,6 +214,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainMenuView()
     }
 }
