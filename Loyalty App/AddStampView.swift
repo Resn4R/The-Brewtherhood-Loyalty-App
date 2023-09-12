@@ -12,7 +12,7 @@ struct AddStampView: View {
     
     @ObservedObject var wallet: Wallet
     
-    var backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
     
     func addStamp(stampcard: StampCard) {
         let newStamp = Stamp(timeAndDate: Date.now)

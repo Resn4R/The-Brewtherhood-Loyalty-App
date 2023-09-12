@@ -7,7 +7,12 @@
 
 import Foundation
 
-class Wallet: ObservableObject, Sequence, IteratorProtocol {
+class Wallet: ObservableObject, Codable {
+    
+    enum CodingKeys: CodingKey {
+    case wallet, activeCard
+    }
+    
     var count: Int = 0
     @Published var wallet = [StampCard]()
     @Published var activeCard = StampCard()
@@ -31,20 +36,39 @@ class Wallet: ObservableObject, Sequence, IteratorProtocol {
     }
     
     func fullCardsAmount() -> Int {
-        var fullStampedCards = 0
-        for card in wallet {
-            card.isCardFull() ? fullStampedCards += 1 : nil
+
+        print("wallet.fullCardsAmount starting. Wallet: \(wallet)")
+        return wallet.reduce(0) { partialResult, StampCard in
+            print("""
+                    \(partialResult)
+                    \(StampCard.count)
+            """)
+            if StampCard.isCardFull() {
+                print("if statement accessed. is card full? \(StampCard.isCardFull())")
+                return partialResult + 1
+            }
+            print("past the if-block. partial result is \(partialResult)")
+            return partialResult
         }
-        return fullStampedCards
+    }
+        
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        print("Wallet.init: container \(container)")
+        
+        wallet = try container.decode([StampCard].self, forKey: .wallet)
+        print("Wallet.init: wallet \(wallet)")
+        
+        activeCard = try container.decode(StampCard.self, forKey: .activeCard)
+        print("Wallet.init: activeCard \(activeCard)")
     }
     
-    func next() -> Int? {
-            if count == 0 {
-                return nil
-            } else {
-                defer { count -= 1 }
-                return count
-            }
-        }
+    init(){}
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(wallet, forKey: .wallet)
+        try container.encode(activeCard, forKey: .activeCard)
+    }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F625EFE2AB0C0F9007E946B /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */; };
 		4F752BC82A9F57B60060139A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F752BC52A9F57B60060139A /* Assets.xcassets */; };
 		4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC62A9F57B60060139A /* CodeScanner.swift */; };
 		4F752BCA2A9F57B60060139A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC72A9F57B60060139A /* ScannerViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = SOURCE_ROOT; };
 		4F752BC52A9F57B60060139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		4F752BC72A9F57B60060139A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -91,17 +93,18 @@
 		4FCC1A5A2A91111A00DB57A8 /* Loyalty App */ = {
 			isa = PBXGroup;
 			children = (
+				4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */,
 				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
 				4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */,
-				4FCC1A5D2A91111A00DB57A8 /* MainMenuView.swift */,
 				4FCC1A5B2A91111A00DB57A8 /* Loyalty_AppApp.swift */,
+				4FCC1A5D2A91111A00DB57A8 /* MainMenuView.swift */,
 				4FCC1A712A93AA5000DB57A8 /* CameraView.swift */,
-				4FCC1A612A91111C00DB57A8 /* Preview Content */,
 				4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */,
 				4FCC1A692A937C1600DB57A8 /* Stamp.swift */,
 				4FCC1A6B2A937F1200DB57A8 /* StampCard.swift */,
 				4FCC1A752A9638EC00DB57A8 /* Wallet.swift */,
 				4FCC1A772A97884200DB57A8 /* WalletView.swift */,
+				4FCC1A612A91111C00DB57A8 /* Preview Content */,
 			);
 			path = "Loyalty App";
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				4FCC1A6C2A937F1200DB57A8 /* StampCard.swift in Sources */,
 				4FCC1A702A93A16600DB57A8 /* RedeemCardView.swift in Sources */,
 				4F752BCA2A9F57B60060139A /* ScannerViewController.swift in Sources */,
+				4F625EFE2AB0C0F9007E946B /* BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Stamp: Identifiable {
+struct Stamp: Identifiable, Codable {
     var id = UUID()
     var timeAndDate: Date
 }
