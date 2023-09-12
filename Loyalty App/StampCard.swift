@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StampCard: Sequence, IteratorProtocol, Codable {
+class StampCard: Sequence, IteratorProtocol {
     var count: Int = 0
     
     var stampCard = [Stamp]()
@@ -22,7 +22,7 @@ struct StampCard: Sequence, IteratorProtocol, Codable {
         stampCard.count < 6 ? false : true
     }
     
-    mutating func next() -> Int? {
+    func next() -> Int? {
             if count == 0 {
                 return nil
             } else {
