@@ -48,9 +48,7 @@ struct CameraView: View {
             RedeemCardView(wallet: wallet)
         }
         .alert(errorTitle, isPresented: $showErrorAlert) {
-            Button("OK"){
-                dismissView()
-            }
+            Button("OK"){}
         } message: {
             Text(errorMessage)
         }

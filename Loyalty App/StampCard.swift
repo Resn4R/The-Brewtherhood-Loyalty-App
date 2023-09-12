@@ -8,10 +8,10 @@
 
 import Foundation
 
-class StampCard: Sequence, IteratorProtocol {
+struct StampCard: Sequence, IteratorProtocol, Codable {
     var count: Int = 0
     
-    @Published var stampCard = [Stamp]()
+    var stampCard = [Stamp]()
     
     init(stampCard: [Stamp] = [Stamp]()) {
         self.stampCard = stampCard
@@ -22,7 +22,7 @@ class StampCard: Sequence, IteratorProtocol {
         stampCard.count < 6 ? false : true
     }
     
-    func next() -> Int? {
+    mutating func next() -> Int? {
             if count == 0 {
                 return nil
             } else {

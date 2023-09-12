@@ -42,7 +42,7 @@ struct MainMenuView: View {
     
     @State private var showStampDetails = false
     
-    private var backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
     
     var body: some View {
         NavigationView {
@@ -63,27 +63,30 @@ struct MainMenuView: View {
                         Spacer()
                         
                         VStack{
-                            Text ("The Brewtherood")
-                                .font(.headline)
-                                .fontDesign(.serif)
-                            Text("COFFEE SOCIETY")
-                                .font(.subheadline)
-                                .fontDesign(.rounded)
+                            Group {
+                                Text ("The Brewtherood")
+                                    .font(.title2)
+                                    .fontDesign(.serif)
+                                Text("COFFEE SOCIETY")
+                                    .font(.subheadline)
+                                    .fontDesign(.rounded)
+                            }
+                            .offset(y: 5)
+                            
                             HStack(spacing: 30){
-                                Button{
-                                    //instagram link
-                                }label: {
+                                Link(destination: URL(string: "https://www.instagram.com")!) {
                                     Image(systemName: "camera.metering.center.weighted")
+                                        .font(.title)
                                 }
-                                Button{
-                                    //facebook link
-                                }label: {
+                                
+                                Link(destination: URL(string: "https://www.facebook.com")!) {
                                     Image(systemName: "f.square")
+                                        .font(.title)
                                 }
-                                Button{
-                                    //twitter link
-                                }label: {
+                                
+                                Link(destination: URL(string: "https://www.twitter.com")!) {
                                     Image(systemName: "bird")
+                                        .font(.title)
                                 }
                             }
                             .padding(.vertical, 10)
@@ -182,6 +185,7 @@ struct MainMenuView: View {
                 .edgesIgnoringSafeArea(.top)
                 
                 .onAppear(){
+                    
                     if wallet.wallet.isEmpty {
                         print("Main menu.onAppear: wallet empty, creating new stampcard")
                         wallet.createNewStampCard()
