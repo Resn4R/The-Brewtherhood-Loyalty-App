@@ -102,6 +102,7 @@ struct MainMenuView: View {
                             .fill(.white)
                             .offset(y: -20)
                             .padding(.vertical, 10)
+                            .padding(.horizontal, 15)
                         VStack{
                             ForEach(0..<2){ column in
                                 HStack(spacing: 20){
