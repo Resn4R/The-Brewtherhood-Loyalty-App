@@ -138,7 +138,7 @@ struct MainMenuView: View {
                                         .offset(x: 3, y: -30)
                                     RoundedRectangle(cornerRadius: 20)
                                         .size(width: 185, height: 60)
-                                        .offset(x: 102, y:17)
+                                        .offset(x: 115, y:17)
                                     Text("""
                                          \(wallet.fullCardsAmount())
                                          Free Coffee Tickets
@@ -155,15 +155,67 @@ struct MainMenuView: View {
                         .shadow(radius: 1)
                         
                     }
-                        
-                    NavigationLink(destination: CameraView(wallet: wallet), label: {
-                        Text("Scan QR Code")
-                            .bold()
-                            .fontDesign(.rounded)
-                            .foregroundColor(.red)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .tint(.white)
+                        //  SCAN QR BUTTON START
+                    
+//                    NavigationLink(destination: CameraView(wallet: wallet), label: {
+//                        Text("Scan QR Code")
+//                            .bold()
+//                            .fontDesign(.rounded)
+//                            .foregroundColor(.red)
+//                    })
+//                    .buttonStyle(.borderedProminent)
+//                    .tint(.white)
+                    //BUTTON END
+                    
+                    //TOOLBAR START
+                    Spacer()
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundStyle(.white)
+                            .frame(width: 400, height: 90)
+                        HStack {
+                            Spacer()
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(backgroundColour)
+                                    .frame(width: 60, height: 60)
+                                    
+                                Button{} label: {
+                                    Image(systemName: "house")
+                                        .foregroundStyle(.white)
+                                        .font(.title)
+                                }
+                            }
+                            .offset(x: -20)
+                            Spacer()
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(backgroundColour)
+                                    .frame(width: 60, height: 60)
+                                NavigationLink(destination: CameraView(wallet: wallet), label: {
+                                    Image(systemName: "camera")
+                                        .foregroundStyle(.white)
+                                        .font(.title)
+                                })
+                            }
+                            Spacer()
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(backgroundColour)
+                                    .frame(width: 60, height: 60)
+                                Button { showWalletViewSheet.toggle() } label: {
+                                    Image(systemName: "menucard")
+                                        .foregroundColor(.white)
+                                        .font(.title)
+                                }
+                            }
+                            .offset(x: 20)
+                            Spacer()
+                        }
+                    }
+                    //TOOLBAR END
                 }
                 .toolbar {
                     ToolbarItem (placement: .navigationBarTrailing){
@@ -174,16 +226,8 @@ struct MainMenuView: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    ToolbarItem(placement: .navigationBarLeading){
-                        Button {
-                            showWalletViewSheet.toggle()
-                        } label: {
-                            Image(systemName: "menucard")
-                                .foregroundColor(.white)
-                        }
-                    }
                 }
-                .edgesIgnoringSafeArea(.top)
+                .ignoresSafeArea()
                 
                 .onAppear(){
                     
