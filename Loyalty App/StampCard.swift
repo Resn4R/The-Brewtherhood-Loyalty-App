@@ -11,15 +11,15 @@ import Foundation
 class StampCard: Sequence, IteratorProtocol, Codable {
     var count: Int = 0
     
-    var stampCard = [Stamp]()
+    var stamps = [Stamp]()
     
     init(stampCard: [Stamp] = [Stamp]()) {
-        self.stampCard = stampCard
+        self.stamps = stampCard
         print("stampCard init completed successfully")
     }
     
     func isCardFull() -> Bool {
-        stampCard.count < 6 ? false : true
+        stamps.count < 6 ? false : true
     }
     
     func next() -> Int? {
@@ -30,5 +30,4 @@ class StampCard: Sequence, IteratorProtocol, Codable {
                 return count
             }
         }
-    
 }

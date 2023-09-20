@@ -26,7 +26,7 @@ struct CameraView: View {
     
     var body: some View {
         
-            CodeScannerView(codeTypes: [.qr]) { response in
+        CodeScannerView(codeTypes: [.qr], scanMode: .continuous) { response in
                 if case let .success(result) = response {
                     scannedCode = result.string
                     
@@ -39,6 +39,7 @@ struct CameraView: View {
                     }
                 }
             }
+            .ignoresSafeArea()
 
         .sheet(isPresented: $showAddStampSheet) {
             AddStampView(wallet: wallet)

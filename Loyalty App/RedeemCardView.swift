@@ -16,6 +16,7 @@ struct RedeemCardView: View {
     
     func redeemFreeCoffee() {
         _ = wallet.removeCompleteCard()
+        wallet.save()
     }
     
     var body: some View {

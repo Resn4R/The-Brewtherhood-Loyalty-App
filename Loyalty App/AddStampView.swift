@@ -17,15 +17,16 @@ struct AddStampView: View {
     func addStamp(stampcard: StampCard) {
         let newStamp = Stamp(timeAndDate: Date.now)
          
-         if wallet.activeCard.stampCard.count < 6 {
-             wallet.activeCard.stampCard.append(newStamp)
+         if wallet.activeCard.stamps.count < 6 {
+             wallet.activeCard.stamps.append(newStamp)
              print("AddStamp:\(newStamp) added to \(wallet.activeCard)")
          
-             if wallet.activeCard.stampCard.count == 6 {
+             if wallet.activeCard.stamps.count == 6 {
                  print("AddStamp: \(wallet.activeCard) is full. Creating a new stampcard")
                  wallet.createNewStampCard()
              }
          }
+        wallet.save()
     }
     
     var body: some View {

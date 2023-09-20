@@ -7,21 +7,6 @@
 
 import SwiftUI
 
-//custom button WIP
-struct StampButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .padding()
-                .tint(.red)
-            Rectangle()
-                .tint(.white)
-                .offset(y: -100)
-                
-        }
-    }
-}
-
 struct stampIcon: View {
     var isShowing = false
     var body: some View {
@@ -127,6 +112,7 @@ struct MainMenuView: View {
                             Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
                                 .shadow(radius: 0)
                                 .offset(y:-10)
+                                .foregroundStyle(backgroundColour)
                             
                             //free coffee image
                             ZStack{
@@ -135,16 +121,20 @@ struct MainMenuView: View {
                                         .stroke(lineWidth: 3)
                                         .scale(x: 0.75, y: 0.75)
                                         .offset(x: 3, y: -30)
+                                        .foregroundStyle(backgroundColour)
+
                                     RoundedRectangle(cornerRadius: 20)
                                         .size(width: 185, height: 60)
                                         .offset(x: 115, y:17)
+                                        .foregroundStyle(backgroundColour)
+
                                     Text("""
                                          \(wallet.fullCardsAmount())
                                          Free Coffee Tickets
                                          """)
                                         .fontDesign(.serif)
                                         .bold()
-                                        .foregroundColor(.white)
+                                        .foregroundStyle(.white)
                                         .offset(y: -30)
                                         .multilineTextAlignment(.center)
                                 }
@@ -154,24 +144,13 @@ struct MainMenuView: View {
                         .shadow(radius: 1)
                         
                     }
-                        //  SCAN QR BUTTON START
-                    
-//                    NavigationLink(destination: CameraView(wallet: wallet), label: {
-//                        Text("Scan QR Code")
-//                            .bold()
-//                            .fontDesign(.rounded)
-//                            .foregroundColor(.red)
-//                    })
-//                    .buttonStyle(.borderedProminent)
-//                    .tint(.white)
-                    //BUTTON END
                     
                     //TOOLBAR START
                     Spacer()
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(.white)
-                            .frame(width: 400, height: 90)
+                            .frame(width: 400, height: 100)
                         HStack {
                             Spacer()
                             ZStack {
@@ -229,20 +208,19 @@ struct MainMenuView: View {
                 .ignoresSafeArea()
                 
                 .onAppear(){
-                    
-                    if wallet.wallet.isEmpty {
-                        print("Main menu.onAppear: wallet empty, creating new stampcard")
-                        wallet.createNewStampCard()
-                        print("Main menu.onAppear: new stampcard created ")
-                    }
-                    else {
-                        print("""
-                            Main menu.onAppear: Wallet not empty, no new stampcard created
-                            \(wallet.wallet.count) stampcard present
-                            \(wallet.activeCard.stampCard.count) stamps in active card
-                            """)
-                    }
-                    activeCardStampCount = wallet.activeCard.stampCard.count
+//                    if wallet.wallet.isEmpty {
+//                        print("Main menu.onAppear: wallet empty, creating new stampcard")
+//                        wallet.createNewStampCard()
+//                        print("Main menu.onAppear: new stampcard created ")
+//                    }
+//                    else {
+//                        print("""
+//                            Main menu.onAppear: Wallet not empty, no new stampcard created
+//                            \(wallet.wallet.count) stampcard present
+//                            \(wallet.activeCard.stampCard.count) stamps in active card
+//                            """)
+//                    }
+                    activeCardStampCount = wallet.activeCard.stamps.count
                     print("Main menu.onAppear: activeCardStampCount: \(activeCardStampCount)")
                 }
                 
@@ -255,6 +233,7 @@ struct MainMenuView: View {
                 } message: {
                     Text("The promotion applies to all handcrafted coffee, hot or iced, of any size.")
                 }
+                .preferredColorScheme(.dark)
             }
         }
     }

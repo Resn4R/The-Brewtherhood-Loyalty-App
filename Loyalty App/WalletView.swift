@@ -23,7 +23,7 @@ struct WalletView: View {
                     Spacer()
                     Text("""
                     NUMBER OF STAMPCARDS
-                    \(wallet.wallet.count)
+                    \(wallet.count)
                 
                 
                     NUMBER OF FULLY STAMPED CARDS
@@ -31,7 +31,7 @@ struct WalletView: View {
                 
                 
                     NUMBER OF STAMPS IN ACTIVE CARD
-                    \(wallet.activeCard.stampCard.count)
+                    \(wallet.activeCard.stamps.count)
                 
                 """)
                     .foregroundColor(.white)
