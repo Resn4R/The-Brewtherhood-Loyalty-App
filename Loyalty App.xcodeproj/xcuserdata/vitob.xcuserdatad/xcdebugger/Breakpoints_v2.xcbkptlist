@@ -78,6 +78,36 @@
                   endingLineNumber = "22"
                   offsetFromSymbolStart = "164">
                </Location>
+               <Location
+                  uuid = "5A2168E4-9083-47B9-B5FE-0C76BAB5AD5D - 35a8f0bd1435475b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loyalty_App.Wallet.createNewStampCard() -&gt; ()"
+                  moduleName = "Loyalty App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitob/Desktop/Swift%20Projects/Loyalty%20App/Loyalty%20App/Wallet.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "5A2168E4-9083-47B9-B5FE-0C76BAB5AD5D - 35a8f0bd1435475b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loyalty_App.Wallet.createNewStampCard() -&gt; ()"
+                  moduleName = "Loyalty App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitob/Desktop/Swift%20Projects/Loyalty%20App/Loyalty%20App/Wallet.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "212">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

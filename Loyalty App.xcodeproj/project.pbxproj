@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F49D7B12ABB4E5700988287 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F49D7B02ABB4E5700988287 /* Property List.plist */; };
 		4F625EFE2AB0C0F9007E946B /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */; };
 		4F752BC82A9F57B60060139A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F752BC52A9F57B60060139A /* Assets.xcassets */; };
 		4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC62A9F57B60060139A /* CodeScanner.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F49D7B02ABB4E5700988287 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = SOURCE_ROOT; };
 		4F752BC52A9F57B60060139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
@@ -61,8 +63,7 @@
 				4F752BC62A9F57B60060139A /* CodeScanner.swift */,
 				4F752BC72A9F57B60060139A /* ScannerViewController.swift */,
 			);
-			name = CodeScanner;
-			path = "Loyalty App/CodeScanner";
+			path = CodeScanner;
 			sourceTree = "<group>";
 		};
 		4F752BC42A9F57B60060139A /* Resources */ = {
@@ -76,7 +77,6 @@
 		4FCC1A4F2A91111A00DB57A8 = {
 			isa = PBXGroup;
 			children = (
-				4F752BC32A9F57B60060139A /* CodeScanner */,
 				4FCC1A5A2A91111A00DB57A8 /* Loyalty App */,
 				4FCC1A592A91111A00DB57A8 /* Products */,
 			);
@@ -104,7 +104,9 @@
 				4FCC1A6B2A937F1200DB57A8 /* StampCard.swift */,
 				4FCC1A752A9638EC00DB57A8 /* Wallet.swift */,
 				4FCC1A772A97884200DB57A8 /* WalletView.swift */,
+				4F752BC32A9F57B60060139A /* CodeScanner */,
 				4FCC1A612A91111C00DB57A8 /* Preview Content */,
+				4F49D7B02ABB4E5700988287 /* Property List.plist */,
 			);
 			path = "Loyalty App";
 			sourceTree = "<group>";
@@ -177,6 +179,7 @@
 			files = (
 				4FCC1A632A91111C00DB57A8 /* Preview Assets.xcassets in Resources */,
 				4F752BC82A9F57B60060139A /* Assets.xcassets in Resources */,
+				4F49D7B12ABB4E5700988287 /* Property List.plist in Resources */,
 				4FCC1A602A91111C00DB57A8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -310,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -331,11 +334,12 @@
 				DEVELOPMENT_TEAM = BQ55AJ4968;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,11 +364,12 @@
 				DEVELOPMENT_TEAM = BQ55AJ4968;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

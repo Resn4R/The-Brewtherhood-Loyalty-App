@@ -33,7 +33,6 @@ struct stampIcon: View {
     }
 }
 
-
 struct MainMenuView: View {
     @StateObject var wallet = Wallet()
     @State private var showInfoAlert = false

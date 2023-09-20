@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StampCard: Sequence, IteratorProtocol {
+class StampCard: Sequence, IteratorProtocol, Codable {
     var count: Int = 0
     
     var stampCard = [Stamp]()

@@ -25,7 +25,7 @@ struct CameraView: View {
     @State private var scannedCode: String?
     
     var body: some View {
-        VStack(spacing: 10) {
+        
             CodeScannerView(codeTypes: [.qr]) { response in
                 if case let .success(result) = response {
                     scannedCode = result.string
@@ -39,7 +39,6 @@ struct CameraView: View {
                     }
                 }
             }
-        }
 
         .sheet(isPresented: $showAddStampSheet) {
             AddStampView(wallet: wallet)
@@ -54,7 +53,6 @@ struct CameraView: View {
         }
     }
 }
-
 
 struct MockCameraView_Previews: PreviewProvider {
     static var previews: some View {
