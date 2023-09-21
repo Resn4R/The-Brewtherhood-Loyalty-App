@@ -22,10 +22,10 @@
 		4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A712A93AA5000DB57A8 /* CameraView.swift */; };
 		4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A752A9638EC00DB57A8 /* Wallet.swift */; };
 		4FCC1A782A97884200DB57A8 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A772A97884200DB57A8 /* WalletView.swift */; };
+		4FD4C7932ABCA6B900C1D4C8 /* Loyalty-App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD4C7922ABCA6B900C1D4C8 /* Loyalty-App-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F202C662ABB9F8000336BCB /* Loyalty-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Loyalty-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = SOURCE_ROOT; };
 		4F752BC52A9F57B60060139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
@@ -42,6 +42,7 @@
 		4FCC1A712A93AA5000DB57A8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4FCC1A752A9638EC00DB57A8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		4FCC1A772A97884200DB57A8 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		4FD4C7922ABCA6B900C1D4C8 /* Loyalty-App-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Loyalty-App-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +93,6 @@
 		4FCC1A5A2A91111A00DB57A8 /* Loyalty App */ = {
 			isa = PBXGroup;
 			children = (
-				4F202C662ABB9F8000336BCB /* Loyalty-App-Info.plist */,
 				4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */,
 				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
 				4FCC1A5B2A91111A00DB57A8 /* Loyalty_AppApp.swift */,
@@ -103,6 +103,7 @@
 				4FCC1A6B2A937F1200DB57A8 /* StampCard.swift */,
 				4FCC1A752A9638EC00DB57A8 /* Wallet.swift */,
 				4FCC1A772A97884200DB57A8 /* WalletView.swift */,
+				4FD4C7922ABCA6B900C1D4C8 /* Loyalty-App-Info.plist */,
 				4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */,
 				4F752BC32A9F57B60060139A /* CodeScanner */,
 				4FCC1A612A91111C00DB57A8 /* Preview Content */,
@@ -177,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FCC1A632A91111C00DB57A8 /* Preview Assets.xcassets in Resources */,
+				4FD4C7932ABCA6B900C1D4C8 /* Loyalty-App-Info.plist in Resources */,
 				4F752BC82A9F57B60060139A /* Assets.xcassets in Resources */,
 				4FCC1A602A91111C00DB57A8 /* Assets.xcassets in Resources */,
 			);
