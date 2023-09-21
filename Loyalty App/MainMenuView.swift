@@ -13,8 +13,8 @@ struct stampIcon: View {
         Image("stamp icon")
             .resizable()
             .scaledToFit()
-            .rotationEffect(Angle.radians(Double.random(in: 180...275)))
-            .offset(x:CGFloat.random(in: -30...30), y: CGFloat.random(in: -30...30))
+            .rotationEffect(Angle.radians(Double.random(in: 0...359)))
+            .offset(x:CGFloat.random(in: -20...20), y: CGFloat.random(in: -20...20))
     }
 }
 
@@ -39,10 +39,10 @@ struct MainMenuView: View {
                     
                     //logo
                     HStack {
-                        Image("Coffee shops logos Background Removed")
+                        Image("brand logo")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 200 , height: 200)
+                            .frame(width: 175 , height: 175)
                         
                         Spacer()
                         
@@ -84,7 +84,7 @@ struct MainMenuView: View {
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.white)
-                            .offset(y: -20)
+                            .offset(y: -10)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 15)
                         VStack{
@@ -96,6 +96,7 @@ struct MainMenuView: View {
                                                 .stroke(lineWidth: 2)
                                                 .scale(x: 0.75, y: 0.75)
                                                 .offset(x: CGFloat(column) ,y: CGFloat(row))
+                                                .foregroundStyle(backgroundColour)
                                             //stamp icon
                                             if activeCardStampCount > (row + column * 3){
                                                 Button {
@@ -125,7 +126,7 @@ struct MainMenuView: View {
 
                                     RoundedRectangle(cornerRadius: 20)
                                         .size(width: 185, height: 60)
-                                        .offset(x: 115, y:17)
+                                        .offset(x: 107, y: 13)
                                         .foregroundStyle(backgroundColour)
 
                                     Text("""
@@ -192,6 +193,7 @@ struct MainMenuView: View {
                             .offset(x: 20)
                             Spacer()
                         }
+                        .offset(y: -10)
                     }
                     //TOOLBAR END
                 }
@@ -208,18 +210,6 @@ struct MainMenuView: View {
                 .ignoresSafeArea()
                 
                 .onAppear(){
-//                    if wallet.wallet.isEmpty {
-//                        print("Main menu.onAppear: wallet empty, creating new stampcard")
-//                        wallet.createNewStampCard()
-//                        print("Main menu.onAppear: new stampcard created ")
-//                    }
-//                    else {
-//                        print("""
-//                            Main menu.onAppear: Wallet not empty, no new stampcard created
-//                            \(wallet.wallet.count) stampcard present
-//                            \(wallet.activeCard.stampCard.count) stamps in active card
-//                            """)
-//                    }
                     activeCardStampCount = wallet.activeCard.stamps.count
                     print("Main menu.onAppear: activeCardStampCount: \(activeCardStampCount)")
                 }

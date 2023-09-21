@@ -25,11 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F202C662ABB9F8000336BCB /* Loyalty-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Loyalty-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = SOURCE_ROOT; };
 		4F752BC52A9F57B60060139A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		4F752BC72A9F57B60060139A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		4FCC1A582A91111A00DB57A8 /* Loyalty App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loyalty App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FCC1A582A91111A00DB57A8 /* Brewther's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brewther's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FCC1A5B2A91111A00DB57A8 /* Loyalty_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loyalty_AppApp.swift; sourceTree = "<group>"; };
 		4FCC1A5D2A91111A00DB57A8 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +84,7 @@
 		4FCC1A592A91111A00DB57A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FCC1A582A91111A00DB57A8 /* Loyalty App.app */,
+				4FCC1A582A91111A00DB57A8 /* Brewther's.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +92,7 @@
 		4FCC1A5A2A91111A00DB57A8 /* Loyalty App */ = {
 			isa = PBXGroup;
 			children = (
+				4F202C662ABB9F8000336BCB /* Loyalty-App-Info.plist */,
 				4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */,
 				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
 				4FCC1A5B2A91111A00DB57A8 /* Loyalty_AppApp.swift */,
@@ -133,7 +135,7 @@
 			);
 			name = "Loyalty App";
 			productName = "Loyalty App";
-			productReference = 4FCC1A582A91111A00DB57A8 /* Loyalty App.app */;
+			productReference = 4FCC1A582A91111A00DB57A8 /* Brewther's.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -334,11 +336,12 @@
 				DEVELOPMENT_TEAM = BQ55AJ4968;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Loyalty-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed to scan QR codes to add stamps and redeem free drinks";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -347,7 +350,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "asdf.Loyalty-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Brewther's";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -365,11 +371,12 @@
 				DEVELOPMENT_TEAM = BQ55AJ4968;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Loyalty-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed to scan QR codes to add stamps and redeem free drinks";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,7 +385,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "asdf.Loyalty-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Brewther's";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
