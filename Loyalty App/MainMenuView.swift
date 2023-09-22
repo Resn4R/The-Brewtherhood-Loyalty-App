@@ -18,6 +18,10 @@ struct stampIcon: View {
     }
 }
 
+func coffeeTicket(quantity num: Int) -> Image {
+    num > 1 ? Image("Coffee Ticket Multi") : Image("Coffee Ticket Single")
+}
+
 struct MainMenuView: View {
     @StateObject var wallet = Wallet()
     @State private var showInfoAlert = false
@@ -110,40 +114,32 @@ struct MainMenuView: View {
                                 }
                             }
                             .padding()
+                            
                             Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
-                                .shadow(radius: 0)
+                                //.shadow(radius: 0)
                                 .offset(y:-10)
                                 .foregroundStyle(backgroundColour)
                             
-                            //free coffee image
+                            //free coffee image -- NEEDS FIXING
                             ZStack{
                                 Group {
-                                    Circle()
-                                        .stroke(lineWidth: 3)
-                                        .scale(x: 0.75, y: 0.75)
-                                        .offset(x: 3, y: -30)
+                                    coffeeTicket(quantity: wallet.fullCardsAmount())
+                                        .resizable()
+                                        .frame(width:370, height: 200)
+                                        .offset(x:1.75, y: -20)
+                                        .clipped()
+                                        
+                                    Text("\(wallet.fullCardsAmount())")
                                         .foregroundStyle(backgroundColour)
-
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .size(width: 185, height: 60)
-                                        .offset(x: 107, y: 13)
-                                        .foregroundStyle(backgroundColour)
-
-                                    Text("""
-                                         \(wallet.fullCardsAmount())
-                                         Free Coffee Tickets
-                                         """)
+                                        .fontWeight(.heavy)
                                         .fontDesign(.serif)
-                                        .bold()
-                                        .foregroundStyle(.white)
-                                        .offset(y: -30)
-                                        .multilineTextAlignment(.center)
+                                        .font(.system(size: 20))
+                                        .offset(x: -60, y: -13)
+
                                 }
-                                .opacity(wallet.fullCardsAmount() > 0 ? 1 : 0)
+                                .opacity(wallet.fullCardsAmount() > 0 ? 1 : 1)
                             }
                         }
-                        .shadow(radius: 1)
-                        
                     }
                     
                     //TOOLBAR START

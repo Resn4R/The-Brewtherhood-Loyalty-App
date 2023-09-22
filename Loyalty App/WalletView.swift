@@ -22,9 +22,6 @@ struct WalletView: View {
                 VStack{
                     Spacer()
                     Text("""
-                    NUMBER OF STAMPCARDS
-                    \(wallet.count)
-                
                 
                     NUMBER OF FULLY STAMPED CARDS
                     \(wallet.fullCardsAmount())
