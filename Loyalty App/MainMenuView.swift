@@ -26,11 +26,13 @@ struct MainMenuView: View {
     @StateObject var wallet = Wallet()
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
+    @State private var showMapViewSheet = false
     @State private var activeCardStampCount = 0
     
     @State private var showStampDetails = false
     
-    private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    
     
     var body: some View {
         NavigationView {
@@ -180,8 +182,8 @@ struct MainMenuView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(backgroundColour)
                                     .frame(width: 60, height: 60)
-                                Button { showWalletViewSheet.toggle() } label: {
-                                    Image(systemName: "menucard")
+                                Button { showMapViewSheet.toggle() } label: {
+                                    Image(systemName: "map")
                                         .foregroundColor(.white)
                                         .font(.title)
                                 }
@@ -210,8 +212,8 @@ struct MainMenuView: View {
                     print("Main menu.onAppear: activeCardStampCount: \(activeCardStampCount)")
                 }
                 
-                .sheet(isPresented: $showWalletViewSheet) {
-                    WalletView(wallet: wallet)
+                .sheet(isPresented: $showMapViewSheet) {
+                    MapView()
                 }
                 
                 .alert("Info", isPresented: $showInfoAlert) {

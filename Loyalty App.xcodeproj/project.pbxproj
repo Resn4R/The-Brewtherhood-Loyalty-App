@@ -22,6 +22,7 @@
 		4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A712A93AA5000DB57A8 /* CameraView.swift */; };
 		4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A752A9638EC00DB57A8 /* Wallet.swift */; };
 		4FCC1A782A97884200DB57A8 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A772A97884200DB57A8 /* WalletView.swift */; };
+		4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF011352ABDE6F200EEBBC2 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4FCC1A712A93AA5000DB57A8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4FCC1A752A9638EC00DB57A8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		4FCC1A772A97884200DB57A8 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		4FF011352ABDE6F200EEBBC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */,
 				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
+				4FF011352ABDE6F200EEBBC2 /* MapView.swift */,
 				4FCC1A5B2A91111A00DB57A8 /* Loyalty_AppApp.swift */,
 				4FCC1A5D2A91111A00DB57A8 /* MainMenuView.swift */,
 				4FCC1A712A93AA5000DB57A8 /* CameraView.swift */,
@@ -191,6 +194,7 @@
 				4FCC1A6E2A93991F00DB57A8 /* AddStampView.swift in Sources */,
 				4FCC1A782A97884200DB57A8 /* WalletView.swift in Sources */,
 				4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */,
+				4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */,
 				4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */,
 				4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */,
 				4FCC1A6A2A937C1600DB57A8 /* Stamp.swift in Sources */,
@@ -338,10 +342,12 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Brewtherhood;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed to scan QR codes to add stamps and redeem free drinks";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide directions to the shop from current position";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,10 +379,12 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Brewtherhood;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera needed to scan QR codes to add stamps and redeem free drinks";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Provide directions to the shop from current position";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
