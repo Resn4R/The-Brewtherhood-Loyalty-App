@@ -221,7 +221,7 @@ struct MainMenuView: View {
                 } message: {
                     Text("The promotion applies to all handcrafted coffee, hot or iced, of any size.")
                 }
-                .preferredColorScheme(.dark)
+                .toolbarColorScheme(.dark, for: .tabBar)
             }
         }
     }

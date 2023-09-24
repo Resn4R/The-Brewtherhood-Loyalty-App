@@ -8,46 +8,58 @@
 import SwiftUI
 import MapKit
 
-
 struct Location: Identifiable {
     let id = UUID()
     let name: String
     let coordinate: CLLocationCoordinate2D
 }
 
+func openMaps() {
+    UIApplication.shared.open(NSURL(string: "https://maps.apple.com/?address=Playhouse Square, Quarry Hill, Leeds, LS2 7UP, England")! as URL)
+}
+
 struct MapView: View {
     @Environment(\.dismiss) var dismissView
     
     private let location = Location(name: "SwiftLeeds @ Leeds Playhouse", coordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683))
-   // @State private var region = MKCoordinateRegion(center:CLLocationCoordinate2D(latitude: 53.79832411792161, longitude: -1.5351021786619503), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    private let region: MapCameraPosition = .automatic
-
+    
+    private let camera: MapCameraPosition = .camera(
+        MapCamera(
+            centerCoordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683),
+            distance: 1500,
+            heading: 0,
+            pitch: 30
+        )
+    )
     
     var body: some View {
-        VStack{
-            
-            Map{
-                Annotation(
-                    location.name,
-                    coordinate: location.coordinate,
-                    anchor: .bottom) {
-                        HStack{
-                            Image(systemName: "person.3.sequence")
-                                .foregroundStyle(.red)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                            Image(systemName: "mappin")
-                                .foregroundStyle(.red)
-                        }
-                        .padding(2)
-                    }
-            }
-            .mapStyle(.standard(elevation: .realistic))
-
-                .background(.backgroundColour)
+        NavigationStack{
+            VStack{
+                Map(initialPosition: camera){
+                    Annotation(
+                        location.name,
+                        coordinate: location.coordinate,
+                        anchor: .bottom) {
+                            HStack{
+                                Image(systemName: "person.3.sequence")
+                                    .foregroundStyle(.red)
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                                Image(systemName: "mappin")
+                                    .foregroundStyle(.red)
+                            }
+                            .padding(2)
+                        }   // set location annotation
+                    
+                    UserAnnotation()    //  User location Annotation
+                }
+                .mapStyle(.standard(elevation: .realistic))
+                
+                .background(.ultraThinMaterial)
                 .safeAreaInset(edge: .bottom) {
                     Spacer()
                     Button{
                         // links to map with direction from current pos to location
+                        openMaps()
                     } label: {
                         Text("Take me there")
                             .fontDesign(.serif)
@@ -55,14 +67,23 @@ struct MapView: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
-           
-        }
-        .toolbar{
-            ToolbarItem (placement: .topBarLeading){
-                Button("Back"){
-                    dismissView()
+                .mapControls {
+                    MapCompass()
+                    MapScaleView()
+                    MapUserLocationButton()
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismissView()
+                    } label: {
+                            Text("Back")
+                        .foregroundColor(.white)
+                    }
+                }
+            }
+            .toolbarColorScheme(.dark, for: .navigationBar)
         }
     }
 }
