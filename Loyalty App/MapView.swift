@@ -14,14 +14,24 @@ struct Location: Identifiable {
     let coordinate: CLLocationCoordinate2D
 }
 
-func openMaps() {
-    UIApplication.shared.open(NSURL(string: "https://maps.apple.com/?address=Playhouse Square, Quarry Hill, Leeds, LS2 7UP, England")! as URL)
+func openMapsApp(to destination: Location) {
+    //UIApplication.shared.open(NSURL(string: "https://maps.apple.com/?ll=\(destination.coordinate.latitude),\(destination.coordinate.longitude)")! as URL)
+    let placemark = MKPlacemark(coordinate: destination.coordinate)
+    let mapItem = MKMapItem(placemark: placemark)
+    mapItem.name = destination.name
+    
+    let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault]
+    
+    mapItem.openInMaps(launchOptions: launchOptions)
 }
 
 struct MapView: View {
     @Environment(\.dismiss) var dismissView
     
-    private let location = Location(name: "SwiftLeeds @ Leeds Playhouse", coordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683))
+    private let location = Location(
+        name: "SwiftLeeds @ Leeds Playhouse",
+        coordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683)
+    )
     
     private let camera: MapCameraPosition = .camera(
         MapCamera(
@@ -59,7 +69,7 @@ struct MapView: View {
                     Spacer()
                     Button{
                         // links to map with direction from current pos to location
-                        openMaps()
+                        openMapsApp(to: location)
                     } label: {
                         Text("Take me there")
                             .fontDesign(.serif)
