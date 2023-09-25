@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>11</string>
+							<key>EndingLineNumber</key>
+							<string>182</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>182</string>
+							<key>Timestamp</key>
+							<string>717347708.875589</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>           </string>
+						<key>leading</key>
+						<string>        override public func viewDidLoad() {
+            super.viewDidLoad()
+</string>
+						<key>trailing</key>
+						<string>// self.addOrientationDidChangeObserver()
+            self.setBackgroundColor()
+            self.handleCameraPermission()
+</string>
+					</dict>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>10</string>
+							<key>EndingLineNumber</key>
+							<string>191</string>
+							<key>StartingColumnNumber</key>
+							<string>2</string>
+							<key>StartingLineNumber</key>
+							<string>191</string>
+							<key>Timestamp</key>
+							<string>717347713.128219</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>        </string>
+						<key>leading</key>
+						<string>        }
+
+//</string>
+						<key>trailing</key>
+						<string>@objc func updateOrientation() {
+//            guard let orientation = view.window?.windowScene?.interfaceOrientation else { return }
+//            guard let connection = captureSession?.connections.last, connection.isVideoOrientationSupported else { return }
+</string>
+					</dict>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>12</string>
+							<key>EndingLineNumber</key>
+							<string>210</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>210</string>
+							<key>Timestamp</key>
+							<string>717347740.438375</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>            </string>
+						<key>leading</key>
+						<string>        override public func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+</string>
+						<key>trailing</key>
+						<string>//updateOrientation()
+        }
+
+</string>
+					</dict>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>10</string>
+							<key>EndingLineNumber</key>
+							<string>274</string>
+							<key>StartingColumnNumber</key>
+							<string>2</string>
+							<key>StartingLineNumber</key>
+							<string>274</string>
+							<key>Timestamp</key>
+							<string>717347748.335561</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>        </string>
+						<key>leading</key>
+						<string>        }
+      
+//</string>
+						<key>trailing</key>
+						<string>private func addOrientationDidChangeObserver() {
+//            NotificationCenter.default.addObserver(
+//                self,
+</string>
+					</dict>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>Deprecated ScannerView Orientation</string>
+			<key>type</key>
+			<string>group</string>
+		</dict>
+	</array>
+</dict>
+</plist>
