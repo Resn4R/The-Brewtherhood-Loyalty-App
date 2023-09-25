@@ -21,7 +21,6 @@
 		4FCC1A702A93A16600DB57A8 /* RedeemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */; };
 		4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A712A93AA5000DB57A8 /* CameraView.swift */; };
 		4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A752A9638EC00DB57A8 /* Wallet.swift */; };
-		4FCC1A782A97884200DB57A8 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A772A97884200DB57A8 /* WalletView.swift */; };
 		4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF011352ABDE6F200EEBBC2 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemCardView.swift; sourceTree = "<group>"; };
 		4FCC1A712A93AA5000DB57A8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4FCC1A752A9638EC00DB57A8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
-		4FCC1A772A97884200DB57A8 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		4FF011352ABDE6F200EEBBC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +101,6 @@
 				4FCC1A692A937C1600DB57A8 /* Stamp.swift */,
 				4FCC1A6B2A937F1200DB57A8 /* StampCard.swift */,
 				4FCC1A752A9638EC00DB57A8 /* Wallet.swift */,
-				4FCC1A772A97884200DB57A8 /* WalletView.swift */,
 				4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */,
 				4F752BC32A9F57B60060139A /* CodeScanner */,
 				4FCC1A612A91111C00DB57A8 /* Preview Content */,
@@ -192,7 +189,6 @@
 			files = (
 				4FCC1A5E2A91111A00DB57A8 /* MainMenuView.swift in Sources */,
 				4FCC1A6E2A93991F00DB57A8 /* AddStampView.swift in Sources */,
-				4FCC1A782A97884200DB57A8 /* WalletView.swift in Sources */,
 				4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */,
 				4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */,
 				4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */,

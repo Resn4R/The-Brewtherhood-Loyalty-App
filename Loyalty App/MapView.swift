@@ -18,7 +18,6 @@ func openMapsApp(to destination: Location) {
     let placemark = MKPlacemark(coordinate: destination.coordinate)
     let mapItem = MKMapItem(placemark: placemark)
     mapItem.name = destination.name
-    
     let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault]
     
     mapItem.openInMaps(launchOptions: launchOptions)
@@ -64,6 +63,7 @@ struct MapView: View {
                 .mapStyle(.standard(elevation: .realistic))
                 
                 .background(.ultraThinMaterial)
+                //  "Take me there" button
                 .safeAreaInset(edge: .bottom) {
                     Spacer()
                     Button{
@@ -76,10 +76,12 @@ struct MapView: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
+                
                 .mapControls {
                     MapCompass()
                     MapScaleView()
                     MapUserLocationButton()
+                    MapPitchToggle()
                 }
             }
             .toolbar {
