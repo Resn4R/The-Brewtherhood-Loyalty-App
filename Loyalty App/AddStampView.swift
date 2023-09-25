@@ -11,7 +11,7 @@ struct AddStampView: View {
     @Environment(\.dismiss) var dismissView
     
     @ObservedObject var wallet: Wallet
-    
+    @State private var showFreeCoffeeAlert = true
     private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
     
     func addStamp(stampcard: StampCard) {
@@ -22,6 +22,7 @@ struct AddStampView: View {
              print("AddStamp:\(newStamp) added to \(wallet.activeCard)")
          
              if wallet.activeCard.stamps.count == 6 {
+                 showFreeCoffeeAlert.toggle()
                  print("AddStamp: \(wallet.activeCard) is full. Creating a new stampcard")
                  wallet.createNewStampCard()
              }
@@ -37,16 +38,32 @@ struct AddStampView: View {
 
                 VStack{
                     Spacer()
-                    Text("Stamp Added!")
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .fontDesign(.serif)
+                    Group{
+                        Text("""
+                            Stamp Added.
+                            You now have \(wallet.activeCard.count) stamps.
+                            """)
+                        
+                        Text("""
+                            Congratulations!
+                            
+                            You have collected enough stamps to redeem a free coffee!
+                            """)
+                            .foregroundStyle(.specialColour)
+                            .opacity(showFreeCoffeeAlert ? 1 : 0)
+                    }
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .fontDesign(.serif)
                     
                     Spacer()
                     Button {
                         dismissView()
                     } label: {
                         Text("OK")
+                            .font(.largeTitle)
                             .foregroundColor(.black)
                             .fontDesign(.serif)
                     }
