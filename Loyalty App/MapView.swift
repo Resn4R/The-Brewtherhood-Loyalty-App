@@ -15,7 +15,6 @@ struct Location: Identifiable {
 }
 
 func openMapsApp(to destination: Location) {
-    //UIApplication.shared.open(NSURL(string: "https://maps.apple.com/?ll=\(destination.coordinate.latitude),\(destination.coordinate.longitude)")! as URL)
     let placemark = MKPlacemark(coordinate: destination.coordinate)
     let mapItem = MKMapItem(placemark: placemark)
     mapItem.name = destination.name
