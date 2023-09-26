@@ -43,7 +43,6 @@ struct MainMenuView: View {
                     Text("") //IT FIXES THE ALIGNMENTS - DO NOT REMOVE
                         .padding()
                     
-                    //logo
                     HStack {
                         Image("brand logo")
                             .resizable()
@@ -86,7 +85,6 @@ struct MainMenuView: View {
                         .padding()
                     }
                     
-                    //loyalty card body
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.white)
@@ -103,7 +101,7 @@ struct MainMenuView: View {
                                                 .scale(x: 0.75, y: 0.75)
                                                 .offset(x: CGFloat(column) ,y: CGFloat(row))
                                                 .foregroundStyle(backgroundColour)
-                                            //stamp icon
+                                            
                                             if activeCardStampCount > (row + column * 3){
                                                 Button {
                                                     showStampDetails.toggle()
@@ -118,11 +116,9 @@ struct MainMenuView: View {
                             .padding()
                             
                             Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
-                                //.shadow(radius: 0)
                                 .offset(y:-10)
                                 .foregroundStyle(backgroundColour)
                             
-                            //free coffee image -- NEEDS FIXING
                             ZStack{
                                 Group {
                                     coffeeTicket(quantity: wallet.fullCardsAmount())
@@ -144,8 +140,8 @@ struct MainMenuView: View {
                         }
                     }
                     
-                    //TOOLBAR START
                     Spacer()
+                    
                     ZStack {
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundStyle(.white)
@@ -193,7 +189,7 @@ struct MainMenuView: View {
                         }
                         .offset(y: -10)
                     }
-                    //TOOLBAR END
+                        
                 }
                 .toolbar {
                     ToolbarItem (placement: .navigationBarTrailing){
@@ -209,7 +205,6 @@ struct MainMenuView: View {
                 
                 .onAppear(){
                     activeCardStampCount = wallet.activeCard.stamps.count
-                    print("Main menu.onAppear: activeCardStampCount: \(activeCardStampCount)")
                 }
                 
                 .sheet(isPresented: $showMapViewSheet) {

@@ -37,15 +37,15 @@
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>           </string>
+						<string></string>
 						<key>leading</key>
 						<string>        override public func viewDidLoad() {
             super.viewDidLoad()
 </string>
 						<key>trailing</key>
-						<string>// self.addOrientationDidChangeObserver()
-            self.setBackgroundColor()
+						<string>            self.setBackgroundColor()
             self.handleCameraPermission()
+        }
 </string>
 					</dict>
 					<key>type</key>
@@ -57,59 +57,15 @@
 						<key>location-parameters</key>
 						<dict>
 							<key>EndingColumnNumber</key>
-							<string>10</string>
+							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>191</string>
-							<key>StartingColumnNumber</key>
-							<string>2</string>
-							<key>StartingLineNumber</key>
-							<string>191</string>
-							<key>Timestamp</key>
-							<string>717347713.128219</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>        </string>
-						<key>leading</key>
-						<string>        }
-
-//</string>
-						<key>trailing</key>
-						<string>@objc func updateOrientation() {
-//            guard let orientation = view.window?.windowScene?.interfaceOrientation else { return }
-//            guard let connection = captureSession?.connections.last, connection.isVideoOrientationSupported else { return }
-</string>
-					</dict>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>12</string>
-							<key>EndingLineNumber</key>
-							<string>210</string>
+							<string>190</string>
 							<key>StartingColumnNumber</key>
 							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>210</string>
+							<string>189</string>
 							<key>Timestamp</key>
-							<string>717347740.438375</string>
+							<string>717445713.902491</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -125,15 +81,60 @@
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>            </string>
+						<string>
+</string>
+						<key>leading</key>
+						<string>            previewLayer?.frame = view.layer.bounds
+        }
+</string>
+						<key>trailing</key>
+						<string>
+        override public func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+</string>
+					</dict>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>194</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>193</string>
+							<key>Timestamp</key>
+							<string>717445713.902481</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/CodeScanner/ScannerViewController.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string></string>
 						<key>leading</key>
 						<string>        override public func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
 </string>
 						<key>trailing</key>
-						<string>//updateOrientation()
-        }
+						<string>        }
 
+        override public func viewWillAppear(_ animated: Bool) {
 </string>
 					</dict>
 					<key>type</key>
@@ -145,15 +146,15 @@
 						<key>location-parameters</key>
 						<dict>
 							<key>EndingColumnNumber</key>
-							<string>10</string>
+							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>274</string>
+							<string>257</string>
 							<key>StartingColumnNumber</key>
-							<string>2</string>
+							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>274</string>
+							<string>256</string>
 							<key>Timestamp</key>
-							<string>717347748.335561</string>
+							<string>717445716.969436</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -169,15 +170,16 @@
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>        </string>
+						<string>
+</string>
 						<key>leading</key>
 						<string>        }
       
-//</string>
+</string>
 						<key>trailing</key>
-						<string>private func addOrientationDidChangeObserver() {
-//            NotificationCenter.default.addObserver(
-//                self,
+						<string>      
+        private func setBackgroundColor(_ color: UIColor = .black) {
+            view.backgroundColor = color
 </string>
 					</dict>
 					<key>type</key>
@@ -188,6 +190,50 @@
 			<string>Deprecated ScannerView Orientation</string>
 			<key>type</key>
 			<string>group</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>28</string>
+					<key>EndingLineNumber</key>
+					<string>121</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>121</string>
+					<key>Timestamp</key>
+					<string>717445580.977386</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Loyalty App/MainMenuView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>                            </string>
+				<key>leading</key>
+				<string>                                .foregroundStyle(backgroundColour)
+                            
+</string>
+				<key>trailing</key>
+				<string>ZStack{
+                                Group {
+                                    coffeeTicket(quantity: wallet.fullCardsAmount())
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
 		</dict>
 	</array>
 </dict>
