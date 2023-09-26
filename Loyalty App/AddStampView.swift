@@ -19,11 +19,9 @@ struct AddStampView: View {
          
          if wallet.activeCard.stamps.count < 6 {
              wallet.activeCard.stamps.append(newStamp)
-             print("AddStamp:\(newStamp) added to \(wallet.activeCard)")
          
              if wallet.activeCard.stamps.count == 6 {
                  showFreeCoffeeAlert.toggle()
-                 print("AddStamp: \(wallet.activeCard) is full. Creating a new stampcard")
                  wallet.createNewStampCard()
              }
          }

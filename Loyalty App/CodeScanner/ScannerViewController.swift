@@ -180,7 +180,6 @@ extension CodeScannerView {
 
         override public func viewDidLoad() {
             super.viewDidLoad()
-           // self.addOrientationDidChangeObserver()
             self.setBackgroundColor()
             self.handleCameraPermission()
         }
@@ -189,26 +188,9 @@ extension CodeScannerView {
             previewLayer?.frame = view.layer.bounds
         }
 
-//        @objc func updateOrientation() {
-//            guard let orientation = view.window?.windowScene?.interfaceOrientation else { return }
-//            guard let connection = captureSession?.connections.last, connection.isVideoOrientationSupported else { return }
-//            switch orientation {
-//            case .portrait:
-//                connection.videoOrientation = .portrait
-//            case .landscapeLeft:
-//                connection.videoOrientation = .landscapeLeft
-//            case .landscapeRight:
-//                connection.videoOrientation = .landscapeRight
-//            case .portraitUpsideDown:
-//                connection.videoOrientation = .portraitUpsideDown
-//            default:
-//                connection.videoOrientation = .portrait
-//            }
-//        }
 
         override public func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            //updateOrientation()
         }
 
         override public func viewWillAppear(_ animated: Bool) {
@@ -272,14 +254,7 @@ extension CodeScannerView {
             }
         }
       
-//        private func addOrientationDidChangeObserver() {
-//            NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(updateOrientation),
-//                name: Notification.Name("UIDeviceOrientationDidChangeNotification"),
-//                object: nil
-//            )
-//        }
+
       
         private func setBackgroundColor(_ color: UIColor = .black) {
             view.backgroundColor = color

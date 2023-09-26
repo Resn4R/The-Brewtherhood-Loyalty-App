@@ -43,6 +43,7 @@ struct MapView: View {
     var body: some View {
         NavigationStack{
             VStack{
+                
                 Map(initialPosition: camera){
                     Annotation(
                         location.name,
@@ -56,18 +57,16 @@ struct MapView: View {
                                     .foregroundStyle(.red)
                             }
                             .padding(2)
-                        }   // set location annotation
+                        }
                     
-                    UserAnnotation()    //  User location Annotation
+                    UserAnnotation()
                 }
                 .mapStyle(.standard(elevation: .realistic))
                 
                 .background(.ultraThinMaterial)
-                //  "Take me there" button
                 .safeAreaInset(edge: .bottom) {
                     Spacer()
                     Button{
-                        // links to map with direction from current pos to location
                         openMapsApp(to: location)
                     } label: {
                         Text("Take me there")

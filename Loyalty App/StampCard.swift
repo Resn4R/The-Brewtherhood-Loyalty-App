@@ -15,7 +15,6 @@ class StampCard: Sequence, IteratorProtocol, Codable {
     
     init(stampCard: [Stamp] = [Stamp]()) {
         self.stamps = stampCard
-        print("stampCard init completed successfully")
     }
     
     func isCardFull() -> Bool {
