@@ -5,50 +5,207 @@
 	<key>top-level-items</key>
 	<array>
 		<dict>
-			<key>destination</key>
-			<dict>
-				<key>location-parameters</key>
+			<key>children</key>
+			<array>
 				<dict>
-					<key>EndingColumnNumber</key>
-					<string>28</string>
-					<key>EndingLineNumber</key>
-					<string>121</string>
-					<key>StartingColumnNumber</key>
-					<string>0</string>
-					<key>StartingLineNumber</key>
-					<string>121</string>
-					<key>Timestamp</key>
-					<string>717445580.977386</string>
-				</dict>
-				<key>rebasable-url</key>
-				<dict>
-					<key>base</key>
-					<string>workspace</string>
-					<key>payload</key>
+					<key>destination</key>
 					<dict>
-						<key>relative-path</key>
-						<string>Loyalty App/MainMenuView.swift</string>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>64</string>
+							<key>StartingColumnNumber</key>
+							<string>12</string>
+							<key>StartingLineNumber</key>
+							<string>63</string>
+							<key>Timestamp</key>
+							<string>717610964.234686</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/Wallet.swift</string>
+							</dict>
+						</dict>
 					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>
+</string>
+						<key>leading</key>
+						<string>    }
+    
+    init() {</string>
+						<key>trailing</key>
+						<string>        Task {
+            if let storageData = UserDefaults.standard.data(forKey: storageKey) {
+                if let decoded = try?  JSONDecoder().decode([StampCard].self, from: storageData) {
+</string>
+					</dict>
+					<key>title</key>
+					<string>make async</string>
+					<key>type</key>
+					<string>bookmark</string>
 				</dict>
-			</dict>
-			<key>text-context</key>
-			<dict>
-				<key>focused</key>
-				<string>                            </string>
-				<key>leading</key>
-				<string>                                .foregroundStyle(backgroundColour)
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>52</string>
+							<key>StartingColumnNumber</key>
+							<string>18</string>
+							<key>StartingLineNumber</key>
+							<string>51</string>
+							<key>Timestamp</key>
+							<string>717610967.275358</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/Wallet.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>
+</string>
+						<key>leading</key>
+						<string>    }
+    
+    func save()  {</string>
+						<key>trailing</key>
+						<string>        Task {
+            if let encoded = try? JSONEncoder().encode(storedCards) {
+                defaults.set(encoded, forKey: storageKey)
+</string>
+					</dict>
+					<key>title</key>
+					<string>make async</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>118</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>117</string>
+							<key>Timestamp</key>
+							<string>717627348.17349</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/MainMenuView.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>                            ZStack{
+</string>
+						<key>leading</key>
+						<string>                                .foregroundStyle(.backgroundColour)
                             
 </string>
-				<key>trailing</key>
-				<string>ZStack{
-                                Group {
+						<key>trailing</key>
+						<string>                                Group {
                                     coffeeTicket(quantity: wallet.fullCardsAmount())
+                                        .resizable()
 </string>
-			</dict>
+					</dict>
+					<key>title</key>
+					<string>Free coffee ticket </string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+				<dict>
+					<key>destination</key>
+					<dict>
+						<key>location-parameters</key>
+						<dict>
+							<key>EndingColumnNumber</key>
+							<string>0</string>
+							<key>EndingLineNumber</key>
+							<string>92</string>
+							<key>StartingColumnNumber</key>
+							<string>0</string>
+							<key>StartingLineNumber</key>
+							<string>91</string>
+							<key>Timestamp</key>
+							<string>717613535.228424</string>
+						</dict>
+						<key>rebasable-url</key>
+						<dict>
+							<key>base</key>
+							<string>workspace</string>
+							<key>payload</key>
+							<dict>
+								<key>relative-path</key>
+								<string>Loyalty App/MainMenuView.swift</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>is-complete</key>
+					<true/>
+					<key>text-context</key>
+					<dict>
+						<key>focused</key>
+						<string>                        VStack{
+</string>
+						<key>leading</key>
+						<string>                            .padding(.vertical, 15)
+                            .padding(.horizontal, 15)
+</string>
+						<key>trailing</key>
+						<string>                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
+                                ForEach(0..&lt;6) { index in
+                                    ZStack {
+</string>
+					</dict>
+					<key>title</key>
+					<string>refactor to a grid</string>
+					<key>type</key>
+					<string>bookmark</string>
+				</dict>
+			</array>
 			<key>title</key>
-			<string>Free coffee ticket </string>
+			<string>To-Do list</string>
 			<key>type</key>
-			<string>bookmark</string>
+			<string>group</string>
 		</dict>
 	</array>
 </dict>
