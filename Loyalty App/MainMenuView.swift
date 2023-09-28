@@ -22,6 +22,7 @@ func coffeeTicket(quantity num: Int) -> Image {
     num > 1 ? Image("Coffee Ticket Multi") : Image("Coffee Ticket Single")
 }
 
+
 struct MainMenuView: View {
     @StateObject var wallet = Wallet()
     @State private var showInfoAlert = false
@@ -31,13 +32,10 @@ struct MainMenuView: View {
     
     @State private var showStampDetails = false
     
-    let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
-    
-    
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 VStack {
                     Text("") //IT FIXES THE ALIGNMENTS - DO NOT REMOVE
@@ -89,35 +87,33 @@ struct MainMenuView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.white)
                             .offset(y: -10)
-                            .padding(.vertical, 10)
+                            .padding(.vertical, 15)
                             .padding(.horizontal, 15)
                         VStack{
-                            ForEach(0..<2){ column in
-                                HStack(spacing: 20){
-                                    ForEach(0..<3) { row in
-                                        ZStack{
-                                            Circle()
-                                                .stroke(lineWidth: 2)
-                                                .scale(x: 0.75, y: 0.75)
-                                                .offset(x: CGFloat(column) ,y: CGFloat(row))
-                                                .foregroundStyle(backgroundColour)
-                                            
-                                            if activeCardStampCount > (row + column * 3){
-                                                Button {
-                                                    showStampDetails.toggle()
-                                                } label: {
-                                                    stampIcon()
-                                                }
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
+                                ForEach(0..<6) { index in
+                                    ZStack {
+                                        Circle()
+                                            .stroke(lineWidth: 2)
+                                            .scale(x: 1.1, y: 1.1)
+                                            .foregroundStyle(.backgroundColour)
+                                            //.padding()
+                                        
+                                        if activeCardStampCount > index {
+                                            Button {
+                                                showStampDetails.toggle()
+                                            } label: {
+                                                stampIcon()
                                             }
                                         }
                                     }
                                 }
                             }
-                            .padding()
+                            .padding(.vertical, 10)
                             
                             Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
-                                .offset(y:-10)
-                                .foregroundStyle(backgroundColour)
+                                .offset(y:10)
+                                .foregroundStyle(.backgroundColour)
                             
                             ZStack{
                                 Group {
@@ -128,7 +124,7 @@ struct MainMenuView: View {
                                         .clipped()
                                         
                                     Text("\(wallet.fullCardsAmount())")
-                                        .foregroundStyle(backgroundColour)
+                                        .foregroundStyle(.backgroundColour)
                                         .fontWeight(.heavy)
                                         .fontDesign(.serif)
                                         .font(.system(size: 20))
@@ -137,6 +133,7 @@ struct MainMenuView: View {
                                 }
                                 .opacity(wallet.fullCardsAmount() > 0 ? 1 : 1)
                             }
+                            .offset(y: 50)
                         }
                     }
                     
@@ -150,7 +147,7 @@ struct MainMenuView: View {
                             Spacer()
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(backgroundColour)
+                                    .foregroundColor(.backgroundColour)
                                     .frame(width: 60, height: 60)
                                     
                                 Button{} label: {
@@ -164,7 +161,7 @@ struct MainMenuView: View {
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(backgroundColour)
+                                    .foregroundColor(.backgroundColour)
                                     .frame(width: 60, height: 60)
                                 NavigationLink(destination: CameraView(wallet: wallet), label: {
                                     Image(systemName: "camera")
@@ -176,7 +173,7 @@ struct MainMenuView: View {
                             
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(backgroundColour)
+                                    .foregroundColor(.backgroundColour)
                                     .frame(width: 60, height: 60)
                                 Button { showMapViewSheet.toggle() } label: {
                                     Image(systemName: "map")
@@ -222,8 +219,6 @@ struct MainMenuView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainMenuView()
-    }
-}
+#Preview(body: {
+    MainMenuView()
+})

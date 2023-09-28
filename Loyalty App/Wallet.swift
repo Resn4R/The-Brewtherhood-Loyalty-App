@@ -49,31 +49,35 @@ final class Wallet: ObservableObject, Codable {
         }
     }
     
-    func save() {
-        if let encoded = try? JSONEncoder().encode(storedCards) {
+    func save()  {
+        Task {
+            if let encoded = try? JSONEncoder().encode(storedCards) {
                 defaults.set(encoded, forKey: storageKey)
             }
-        
-        if let encoded = try? JSONEncoder().encode(activeCard) {
+            
+            if let encoded = try? JSONEncoder().encode(activeCard) {
                 defaults.set(encoded, forKey: activeKey)
             }
+        }
     }
     
-    init(){
-        if let storageData = UserDefaults.standard.data(forKey: storageKey) {
-            if let decoded = try? JSONDecoder().decode([StampCard].self, from: storageData) {
-                storedCards = decoded
-            }
-            if let activeData = UserDefaults.standard.data(forKey: activeKey) {
-                if let decoded = try? JSONDecoder().decode(StampCard.self, from: activeData) {
-                    activeCard = decoded
+    init() {
+        Task {
+            if let storageData = UserDefaults.standard.data(forKey: storageKey) {
+                if let decoded = try?  JSONDecoder().decode([StampCard].self, from: storageData) {
+                    storedCards = decoded
                 }
+                if let activeData = UserDefaults.standard.data(forKey: activeKey) {
+                    if let decoded = try? JSONDecoder().decode(StampCard.self, from: activeData) {
+                        activeCard = decoded
+                    }
+                }
+                return
             }
-            return
+            
+            self.storedCards = [StampCard]()
+            self.activeCard = StampCard()
         }
-        
-        self.storedCards = [StampCard]()
-        self.activeCard = StampCard()
     }
     
     init(from decoder: Decoder) throws {
@@ -83,6 +87,7 @@ final class Wallet: ObservableObject, Codable {
 
         activeCard = try container.decode(StampCard.self, forKey: .activeCard)
     }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
