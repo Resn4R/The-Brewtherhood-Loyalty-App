@@ -16,13 +16,12 @@ struct CameraView: View {
     @State private var showAddStampSheet = false
     @State private var showRedeemCoffeeSheet = false
     @State private var showErrorAlert = false
-
     
     private let addStampUUID = "21F51556-802B-4E30-B4FE-4D4B7C5067B9"
     private let redeemCoffeeUUID  = "3E4EBFCF-509B-4C1D-A2C8-E6CAEEBCF747"
         
     @State private var scannedCode: String?
-    
+
     var body: some View {
         
         CodeScannerView(codeTypes: [.qr], scanMode: .continuous) { response in
@@ -33,7 +32,9 @@ struct CameraView: View {
                         showAddStampSheet.toggle()
                     }
                     else if scannedCode == redeemCoffeeUUID {
-                        if wallet.count > 0 { showRedeemCoffeeSheet.toggle() }
+                        if wallet.filter({ $0.isFull() }).count > 0 { 
+                            showRedeemCoffeeSheet.toggle()
+                        }
                         else { showErrorAlert.toggle() }
                     }
                 }

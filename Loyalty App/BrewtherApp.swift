@@ -22,13 +22,11 @@ struct BrewtherApp: App {
             
             guard try container.mainContext.fetch(stampCardFetchDescriptor).count == 0 else { return container }
             
-                container.mainContext.insert(StampCard())
-            
-            
+            container.mainContext.insert(StampCard())
             return container
-        } catch {
-            fatalError("Failed to create container")
-        }
+        }   catch {
+                fatalError("Failed to create container")
+            }
     }()
     
     var body: some Scene {

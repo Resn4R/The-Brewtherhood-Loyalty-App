@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F625EFE2AB0C0F9007E946B /* BundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */; };
 		4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC62A9F57B60060139A /* CodeScanner.swift */; };
 		4F752BCA2A9F57B60060139A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC72A9F57B60060139A /* ScannerViewController.swift */; };
 		4FCC1A5C2A91111A00DB57A8 /* BrewtherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A5B2A91111A00DB57A8 /* BrewtherApp.swift */; };
@@ -19,12 +18,10 @@
 		4FCC1A6E2A93991F00DB57A8 /* AddStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */; };
 		4FCC1A702A93A16600DB57A8 /* RedeemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */; };
 		4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A712A93AA5000DB57A8 /* CameraView.swift */; };
-		4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A752A9638EC00DB57A8 /* Wallet.swift */; };
 		4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF011352ABDE6F200EEBBC2 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtension.swift; sourceTree = SOURCE_ROOT; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		4F752BC72A9F57B60060139A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		4FCC1A582A91111A00DB57A8 /* Brewther's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brewther's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +34,6 @@
 		4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStampView.swift; sourceTree = "<group>"; };
 		4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemCardView.swift; sourceTree = "<group>"; };
 		4FCC1A712A93AA5000DB57A8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		4FCC1A752A9638EC00DB57A8 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		4FF011352ABDE6F200EEBBC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,10 +51,10 @@
 		4F0903B72AC75F5E00EE2C9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
-				4FF011352ABDE6F200EEBBC2 /* MapView.swift */,
 				4FCC1A5D2A91111A00DB57A8 /* MainMenuView.swift */,
+				4FF011352ABDE6F200EEBBC2 /* MapView.swift */,
 				4FCC1A712A93AA5000DB57A8 /* CameraView.swift */,
+				4FCC1A6D2A93991F00DB57A8 /* AddStampView.swift */,
 				4FCC1A6F2A93A16600DB57A8 /* RedeemCardView.swift */,
 			);
 			path = Views;
@@ -69,7 +65,6 @@
 			children = (
 				4FCC1A692A937C1600DB57A8 /* Stamp.swift */,
 				4FCC1A6B2A937F1200DB57A8 /* StampCard.swift */,
-				4FCC1A752A9638EC00DB57A8 /* Wallet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -102,10 +97,9 @@
 		4FCC1A5A2A91111A00DB57A8 /* Loyalty App */ = {
 			isa = PBXGroup;
 			children = (
-				4F625EFD2AB0C0F9007E946B /* BundleExtension.swift */,
 				4FCC1A5B2A91111A00DB57A8 /* BrewtherApp.swift */,
-				4F0903B72AC75F5E00EE2C9B /* Views */,
 				4F0903B82AC75F6A00EE2C9B /* Models */,
+				4F0903B72AC75F5E00EE2C9B /* Views */,
 				4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */,
 				4F752BC32A9F57B60060139A /* CodeScanner */,
 				4FCC1A612A91111C00DB57A8 /* Preview Content */,
@@ -193,7 +187,6 @@
 			files = (
 				4FCC1A6A2A937C1600DB57A8 /* Stamp.swift in Sources */,
 				4FCC1A6C2A937F1200DB57A8 /* StampCard.swift in Sources */,
-				4FCC1A762A9638EC00DB57A8 /* Wallet.swift in Sources */,
 				4FCC1A5C2A91111A00DB57A8 /* BrewtherApp.swift in Sources */,
 				4FCC1A5E2A91111A00DB57A8 /* MainMenuView.swift in Sources */,
 				4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */,
@@ -202,7 +195,6 @@
 				4FCC1A722A93AA5000DB57A8 /* CameraView.swift in Sources */,
 				4FCC1A6E2A93991F00DB57A8 /* AddStampView.swift in Sources */,
 				4FCC1A702A93A16600DB57A8 /* RedeemCardView.swift in Sources */,
-				4F625EFE2AB0C0F9007E946B /* BundleExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

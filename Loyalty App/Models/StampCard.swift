@@ -16,10 +16,10 @@ final class StampCard: Sequence, IteratorProtocol {
     @Relationship(deleteRule: .cascade) var stamps: [Stamp]
     
     init() {
-        self.stamps = [Stamp]()
+        self.stamps = []
     }
     
-    func isCardFull() -> Bool {
+    func isFull() -> Bool {
         stamps.count < 6 ? false : true
     }
     
