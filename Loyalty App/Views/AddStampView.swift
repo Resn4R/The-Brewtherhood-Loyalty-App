@@ -14,24 +14,24 @@ struct AddStampView: View {
     
     @Query var wallet: [StampCard]
     
-    @State private var showFreeCoffeeAlert = true
+    
     @State private var activeCardStampCount: ((StampCard?) -> Int) = { stampCard in
-        if let card = stampCard?.count { return card }
+        if let stamps = stampCard?.stamps.count { return stamps }
         else { return -1 }
     }
+    @State private var freeCoffee = false
     
-    func addStamp(stampcard: StampCard?) {
+    func addStamp() {
         let newStamp = Stamp()
          
          if let activeCard = wallet.last {
-             if !activeCard.isCardFull(){ activeCard.stamps.append(newStamp) }
-         
-             if activeCard.isCardFull() {
-                 showFreeCoffeeAlert.toggle()
+            if !(activeCard.isFull()) { activeCard.stamps.append(newStamp) }
+             
+             if activeCard.isFull() {
+                 freeCoffee.toggle()
                  context.insert(activeCard)
-             }
-         }
-
+            }
+        }
         try? context.save()
     }
     
@@ -40,7 +40,6 @@ struct AddStampView: View {
             ZStack {
                 LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
-
                 VStack{
                     Spacer()
                     Group{
@@ -55,7 +54,7 @@ struct AddStampView: View {
                             You have collected enough stamps to redeem a free coffee!
                             """)
                             .foregroundStyle(.specialColour)
-                            .opacity(showFreeCoffeeAlert ? 1 : 0)
+                            .opacity(freeCoffee ? 1 : 0)
                     }
                     .padding()
                     .multilineTextAlignment(.center)
@@ -65,6 +64,7 @@ struct AddStampView: View {
                     
                     Spacer()
                     Button {
+                        freeCoffee ? context.insert(StampCard()) : nil
                         dismissView()
                     } label: {
                         Text("OK")
@@ -76,11 +76,10 @@ struct AddStampView: View {
                     .tint(.white)
                     Spacer()
                 }
-                
             }
             
             .onAppear(){
-                addStamp(stampcard: wallet.last)
+                addStamp()
             }
             
             .toolbar {

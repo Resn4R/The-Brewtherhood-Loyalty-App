@@ -32,20 +32,18 @@ struct MainMenuView: View {
     @State private var showMapViewSheet = false
     @State private var showStampDetails = false
     
-    @State private var activeCardStampCount: (([StampCard]) -> Int) = { wallet in
-        if let count = wallet.last?.stamps.count { return count }
+    @State private var activeCardStampCount: ((StampCard?) -> Int) = { card in
+        if let count = card?.stamps.count { return count }
         return -1
     }
     @State private var storedCardsCount: (([StampCard]) -> Int) = { wallet in
         wallet.count
     }
-    @State private var fullCardsCount: (([StampCard]) -> Int) = { storedCards in
-        return storedCards.reduce(0) { partialResult, StampCard in
-            if StampCard.isCardFull() {
-                return partialResult + 1
-            }
-            return partialResult
+    @State private var fullCardsCount: (([StampCard]) -> Int) = { wallet in
+        wallet.filter {
+            $0.isFull()
         }
+        .count
     }
     
     var body: some View {
@@ -103,7 +101,7 @@ struct MainMenuView: View {
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.white)
                             .offset(y: -10)
-                            .padding(.vertical, 15)
+                            .padding(.vertical, 5)
                             .padding(.horizontal, 15)
                         VStack{
                             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
@@ -114,7 +112,7 @@ struct MainMenuView: View {
                                             .frame(width: 75, height: 75, alignment: .center)
                                             .foregroundStyle(.backgroundColour)
                                         
-                                        if activeCardStampCount(wallet) > index {
+                                        if activeCardStampCount(wallet.last) > index {
                                             Button {
                                                 showStampDetails.toggle()
                                             } label: {
@@ -126,9 +124,10 @@ struct MainMenuView: View {
                             }
                             .padding(.vertical, 10)
                             
-                            Text("Get \(6 - activeCardStampCount(wallet)) coffees to earn a free drink!")
-                                .offset(y:10)
+                            Text("Get \(6 - activeCardStampCount(wallet.last)) coffees to earn a free drink!")
+                                .offset(y:20)
                                 .foregroundStyle(.backgroundColour)
+                                .opacity(activeCardStampCount(wallet.last) == 6 ? 0 : 1)
                             
                             ZStack{
                                 Group {
@@ -138,23 +137,23 @@ struct MainMenuView: View {
                                         .offset(x:1.75, y: -20)
                                         .clipped()
                                         
-                                    Text("\(storedCardsCount(wallet))")
+                                    Text("\(fullCardsCount(wallet))")
                                         .foregroundStyle(.backgroundColour)
                                         .fontWeight(.heavy)
                                         .fontDesign(.serif)
                                         .font(.system(size: 20))
                                         .offset(x: -60, y: -13)
                                 }
-                                .opacity((fullCardsCount(wallet)) > 0 ? 1 : 0)
+                                .opacity(fullCardsCount(wallet) > 0 ? 1 : 1)
                             }
-                            .offset(y: 50)
+                            .offset(y: 30)
                         }
                     }
                     
                     Spacer()
                     
                     ZStack {
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 5)
                             .foregroundStyle(.white)
                             .frame(width: 400, height: 100)
                         HStack {
