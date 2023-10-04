@@ -15,13 +15,13 @@
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>64</string>
+							<string>66</string>
 							<key>StartingColumnNumber</key>
-							<string>12</string>
+							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>63</string>
+							<string>65</string>
 							<key>Timestamp</key>
-							<string>717610964.234686</string>
+							<string>717709083.065763</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -39,12 +39,12 @@
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>
+						<string>    init() {
 </string>
 						<key>leading</key>
 						<string>    }
     
-    init() {</string>
+</string>
 						<key>trailing</key>
 						<string>        Task {
             if let storageData = UserDefaults.standard.data(forKey: storageKey) {
@@ -64,13 +64,13 @@
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>52</string>
+							<string>54</string>
 							<key>StartingColumnNumber</key>
-							<string>18</string>
+							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>51</string>
+							<string>53</string>
 							<key>Timestamp</key>
-							<string>717610967.275358</string>
+							<string>717709083.0657949</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -88,12 +88,12 @@
 					<key>text-context</key>
 					<dict>
 						<key>focused</key>
-						<string>
+						<string>    func save()  {
 </string>
 						<key>leading</key>
 						<string>    }
     
-    func save()  {</string>
+</string>
 						<key>trailing</key>
 						<string>        Task {
             if let encoded = try? JSONEncoder().encode(storedCards) {
@@ -113,13 +113,13 @@
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>118</string>
+							<string>119</string>
 							<key>StartingColumnNumber</key>
 							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>117</string>
+							<string>118</string>
 							<key>Timestamp</key>
-							<string>717627348.17349</string>
+							<string>717708887.873557</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>
@@ -143,12 +143,12 @@
 </string>
 						<key>trailing</key>
 						<string>                                Group {
-                                    coffeeTicket(quantity: wallet.fullCardsAmount())
+                                    coffeeTicket(single: storedCardsCount &gt; 1 ? false : true)
                                         .resizable()
 </string>
 					</dict>
 					<key>title</key>
-					<string>Free coffee ticket </string>
+					<string>Free coffee ticket change colour</string>
 					<key>type</key>
 					<string>bookmark</string>
 				</dict>
@@ -160,13 +160,13 @@
 							<key>EndingColumnNumber</key>
 							<string>0</string>
 							<key>EndingLineNumber</key>
-							<string>92</string>
+							<string>93</string>
 							<key>StartingColumnNumber</key>
 							<string>0</string>
 							<key>StartingLineNumber</key>
-							<string>91</string>
+							<string>92</string>
 							<key>Timestamp</key>
-							<string>717613535.228424</string>
+							<string>717708887.8739311</string>
 						</dict>
 						<key>rebasable-url</key>
 						<dict>

@@ -6,23 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RedeemCardView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismissView
-    @ObservedObject var wallet: Wallet
-    
-    private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
-
+    @Query var wallet: [StampCard]
     
     func redeemFreeCoffee() {
-        _ = wallet.removeCompleteCard()
-        wallet.save()
+        context.delete(wallet[0])
+        try? context.save()
     }
     
     var body: some View {
         NavigationView{
             ZStack {
-                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
 
                 VStack{
@@ -62,8 +61,6 @@ struct RedeemCardView: View {
     }
 }
 
-struct RedeemStamp_Previews: PreviewProvider {
-    static var previews: some View {
-        RedeemCardView(wallet: Wallet())
-    }
+#Preview {
+    RedeemCardView()
 }

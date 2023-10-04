@@ -7,14 +7,16 @@
 //  Save file for stamps 
 
 import Foundation
+import SwiftData
 
-class StampCard: Sequence, IteratorProtocol, Codable {
+@Model
+final class StampCard: Sequence, IteratorProtocol {
     var count: Int = 0
     
-    var stamps = [Stamp]()
+    @Relationship(deleteRule: .cascade) var stamps: [Stamp]
     
-    init(stampCard: [Stamp] = [Stamp]()) {
-        self.stamps = stampCard
+    init() {
+        self.stamps = [Stamp]()
     }
     
     func isCardFull() -> Bool {
