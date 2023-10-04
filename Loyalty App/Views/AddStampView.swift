@@ -6,32 +6,39 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddStampView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismissView
     
-    @ObservedObject var wallet: Wallet
-    @State private var showFreeCoffeeAlert = true
-    private let backgroundColour = Color(red: 50/255, green: 50/255, blue: 50/255)
+    @Query var wallet: [StampCard]
     
-    func addStamp(stampcard: StampCard) {
-        let newStamp = Stamp(timeAndDate: Date.now)
+    @State private var showFreeCoffeeAlert = true
+    @State private var activeCardStampCount: ((StampCard?) -> Int) = { stampCard in
+        if let card = stampCard?.count { return card }
+        else { return -1 }
+    }
+    
+    func addStamp(stampcard: StampCard?) {
+        let newStamp = Stamp()
          
-         if wallet.activeCard.stamps.count < 6 {
-             wallet.activeCard.stamps.append(newStamp)
+         if let activeCard = wallet.last {
+             if !activeCard.isCardFull(){ activeCard.stamps.append(newStamp) }
          
-             if wallet.activeCard.stamps.count == 6 {
+             if activeCard.isCardFull() {
                  showFreeCoffeeAlert.toggle()
-                 wallet.createNewStampCard()
+                 context.insert(activeCard)
              }
          }
-        wallet.save()
+
+        try? context.save()
     }
     
     var body: some View {
         NavigationView{
             ZStack {
-                LinearGradient(colors: [backgroundColour], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
 
                 VStack{
@@ -39,7 +46,7 @@ struct AddStampView: View {
                     Group{
                         Text("""
                             Stamp Added.
-                            You now have \(wallet.activeCard.count) stamps.
+                            You now have \(activeCardStampCount(wallet.last)) stamps.
                             """)
                         
                         Text("""
@@ -73,7 +80,7 @@ struct AddStampView: View {
             }
             
             .onAppear(){
-                addStamp(stampcard: wallet.activeCard)
+                addStamp(stampcard: wallet.last)
             }
             
             .toolbar {
@@ -90,8 +97,6 @@ struct AddStampView: View {
     }
 }
 
-struct AddStamp_Previews: PreviewProvider {
-    static var previews: some View {
-        AddStampView(wallet: Wallet())
-    }
+#Preview {
+    AddStampView()
 }

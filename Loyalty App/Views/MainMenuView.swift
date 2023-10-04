@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct stampIcon: View {
     var isShowing = false
@@ -18,19 +19,34 @@ struct stampIcon: View {
     }
 }
 
-func coffeeTicket(quantity num: Int) -> Image {
-    num > 1 ? Image("Coffee Ticket Multi") : Image("Coffee Ticket Single")
+func coffeeTicket(single singleFreeCoffee: Bool) -> Image {
+    singleFreeCoffee ? Image("Coffee Ticket Single") : Image("Coffee Ticket Multi")
 }
 
 
 struct MainMenuView: View {
-    @StateObject var wallet = Wallet()
+    @Query(animation: .smooth) var wallet: [StampCard]
+    
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
     @State private var showMapViewSheet = false
-    @State private var activeCardStampCount = 0
-    
     @State private var showStampDetails = false
+    
+    @State private var activeCardStampCount: (([StampCard]) -> Int) = { wallet in
+        if let count = wallet.last?.stamps.count { return count }
+        return -1
+    }
+    @State private var storedCardsCount: (([StampCard]) -> Int) = { wallet in
+        wallet.count
+    }
+    @State private var fullCardsCount: (([StampCard]) -> Int) = { storedCards in
+        return storedCards.reduce(0) { partialResult, StampCard in
+            if StampCard.isCardFull() {
+                return partialResult + 1
+            }
+            return partialResult
+        }
+    }
     
     var body: some View {
         NavigationView {
@@ -95,11 +111,10 @@ struct MainMenuView: View {
                                     ZStack {
                                         Circle()
                                             .stroke(lineWidth: 2)
-                                            .scale(x: 1.1, y: 1.1)
+                                            .frame(width: 75, height: 75, alignment: .center)
                                             .foregroundStyle(.backgroundColour)
-                                            //.padding()
                                         
-                                        if activeCardStampCount > index {
+                                        if activeCardStampCount(wallet) > index {
                                             Button {
                                                 showStampDetails.toggle()
                                             } label: {
@@ -111,27 +126,26 @@ struct MainMenuView: View {
                             }
                             .padding(.vertical, 10)
                             
-                            Text("Get \(6 - activeCardStampCount) coffees to earn a free drink!")
+                            Text("Get \(6 - activeCardStampCount(wallet)) coffees to earn a free drink!")
                                 .offset(y:10)
                                 .foregroundStyle(.backgroundColour)
                             
                             ZStack{
                                 Group {
-                                    coffeeTicket(quantity: wallet.fullCardsAmount())
+                                    coffeeTicket(single: storedCardsCount(wallet) > 1 ? false : true)
                                         .resizable()
                                         .frame(width:370, height: 200)
                                         .offset(x:1.75, y: -20)
                                         .clipped()
                                         
-                                    Text("\(wallet.fullCardsAmount())")
+                                    Text("\(storedCardsCount(wallet))")
                                         .foregroundStyle(.backgroundColour)
                                         .fontWeight(.heavy)
                                         .fontDesign(.serif)
                                         .font(.system(size: 20))
                                         .offset(x: -60, y: -13)
-
                                 }
-                                .opacity(wallet.fullCardsAmount() > 0 ? 1 : 1)
+                                .opacity((fullCardsCount(wallet)) > 0 ? 1 : 0)
                             }
                             .offset(y: 50)
                         }
@@ -163,7 +177,7 @@ struct MainMenuView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .foregroundColor(.backgroundColour)
                                     .frame(width: 60, height: 60)
-                                NavigationLink(destination: CameraView(wallet: wallet), label: {
+                                NavigationLink(destination: CameraView(), label: {
                                     Image(systemName: "camera")
                                         .foregroundStyle(.white)
                                         .font(.title)
@@ -201,7 +215,6 @@ struct MainMenuView: View {
                 .ignoresSafeArea()
                 
                 .onAppear(){
-                    activeCardStampCount = wallet.activeCard.stamps.count
                 }
                 
                 .sheet(isPresented: $showMapViewSheet) {
@@ -219,6 +232,6 @@ struct MainMenuView: View {
     }
 }
 
-#Preview(body: {
+#Preview {
     MainMenuView()
-})
+}

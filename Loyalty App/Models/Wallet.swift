@@ -5,9 +5,14 @@
 //  Created by Vito Borghi on 23/08/2023.
 //
 
+
+/*
+import SwiftData
 import Foundation
 
-final class Wallet: ObservableObject, Codable {
+@Model
+final class Wallet {
+
     
     let defaults = UserDefaults.standard
     
@@ -17,9 +22,9 @@ final class Wallet: ObservableObject, Codable {
     let storageKey = "storedCards"
     let activeKey = "activeCard"
     
-    @Published var storedCards = [StampCard]()
     
-    @Published var activeCard = StampCard()
+    @Relationship(deleteRule: .cascade) var storedCards: [StampCard] = [StampCard]()
+    @Relationship(deleteRule: .noAction) var activeCard: StampCard = StampCard()
     
     var count = 1
     func createNewStampCard() {
@@ -29,7 +34,7 @@ final class Wallet: ObservableObject, Codable {
     }
     
     func removeCompleteCard() -> Bool  {
-        if fullCardsAmount() > 0 {
+        if storedCardsCount() > 0 {
             storedCards.removeFirst()
             return true
         }
@@ -38,8 +43,7 @@ final class Wallet: ObservableObject, Codable {
         }
     }
     
-    func fullCardsAmount() -> Int {
-
+    func storedCardsCount() -> Int {
         return storedCards.reduce(0) { partialResult, StampCard in
            
             if StampCard.isCardFull() {
@@ -48,6 +52,9 @@ final class Wallet: ObservableObject, Codable {
             return partialResult
         }
     }
+    
+    init() {}
+
     
     func save()  {
         Task {
@@ -96,3 +103,4 @@ final class Wallet: ObservableObject, Codable {
     }
     
 }
+*/
