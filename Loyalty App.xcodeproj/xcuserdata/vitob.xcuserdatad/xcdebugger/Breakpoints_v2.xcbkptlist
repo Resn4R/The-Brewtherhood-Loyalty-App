@@ -129,6 +129,21 @@
                   endingLineNumber = "19"
                   offsetFromSymbolStart = "192">
                </Location>
+               <Location
+                  uuid = "693B4E06-06E4-49D0-98DF-B0C3F8E21272 - 87ce47cc3413490d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Brewther_s.StampCard&gt;) -&gt; Swift.Int in variable initialization expression of Brewther_s.AddStampView._activeCardStampCount : SwiftUI.State&lt;(Swift.Optional&lt;Brewther_s.StampCard&gt;) -&gt; Swift.Int&gt;"
+                  moduleName = "Brewther&apos;s"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vitob/Desktop/Swift%20Projects/Loyalty%20App/Loyalty%20App/Views/AddStampView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "228">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -194,6 +209,19 @@
             endingLineNumber = "26"
             landmarkName = "appContainer"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "48895F6E-5CFE-44F9-BE7C-1DE526968147"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
