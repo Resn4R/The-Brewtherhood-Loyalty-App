@@ -31,7 +31,7 @@ struct BrewtherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
+            LaunchScreenView()
         }
         .modelContainer(appContainer)
     }

@@ -228,6 +228,7 @@ struct MainMenuView: View {
                 .toolbarColorScheme(.dark, for: .tabBar)
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
