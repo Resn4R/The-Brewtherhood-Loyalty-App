@@ -11,6 +11,7 @@ import SwiftUI
 
 @main
 struct BrewtherApp: App {
+    @State var path = NavigationPath()
     
     @MainActor
     let appContainer: ModelContainer = {
@@ -24,15 +25,45 @@ struct BrewtherApp: App {
             
             container.mainContext.insert(StampCard())
             return container
-        }   catch {
-                fatalError("Failed to create container")
-            }
+        }
+        catch { fatalError("Failed to create container") }
     }()
     
     var body: some Scene {
         WindowGroup {
-            LaunchScreenView()
+            NavigationStack(path: $path){
+                ZStack{
+                    BackgroundColour()
+                    LauncherImage()
+                        
+                }
+                .navigationDestination(for: String.self) { view in
+                    view == "MainMenuView" ? MainMenuView()
+                    : nil
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    path.append("MainMenuView")
+                }
+            }
         }
         .modelContainer(appContainer)
+    }
+}
+
+struct BackgroundColour: View {
+    var body: some View {
+        LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+    }
+}
+struct LauncherImage: View {
+    var body: some View {
+        Image("Launcher Image")
+            .resizable()
+            .scaledToFit()
+            .padding(.vertical, 20)
+            .padding(.horizontal, 20)
     }
 }
