@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F0903FE2ACD9FF800EE2C9B /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0903FD2ACD9FF800EE2C9B /* LaunchScreenView.swift */; };
 		4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC62A9F57B60060139A /* CodeScanner.swift */; };
 		4F752BCA2A9F57B60060139A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F752BC72A9F57B60060139A /* ScannerViewController.swift */; };
 		4FCC1A5C2A91111A00DB57A8 /* BrewtherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC1A5B2A91111A00DB57A8 /* BrewtherApp.swift */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F0903FD2ACD9FF800EE2C9B /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		4F752BC62A9F57B60060139A /* CodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeScanner.swift; sourceTree = "<group>"; };
 		4F752BC72A9F57B60060139A /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		4FCC1A582A91111A00DB57A8 /* Brewther's.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brewther's.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +99,6 @@
 			children = (
 				4FCC1A5F2A91111C00DB57A8 /* Assets.xcassets */,
 				4FCC1A5B2A91111A00DB57A8 /* BrewtherApp.swift */,
-				4F0903FD2ACD9FF800EE2C9B /* LaunchScreenView.swift */,
 				4F0903B82AC75F6A00EE2C9B /* Models */,
 				4F0903B72AC75F5E00EE2C9B /* Views */,
 				4F752BC32A9F57B60060139A /* CodeScanner */,
@@ -191,7 +188,6 @@
 				4FCC1A6A2A937C1600DB57A8 /* Stamp.swift in Sources */,
 				4FCC1A6C2A937F1200DB57A8 /* StampCard.swift in Sources */,
 				4FCC1A5C2A91111A00DB57A8 /* BrewtherApp.swift in Sources */,
-				4F0903FE2ACD9FF800EE2C9B /* LaunchScreenView.swift in Sources */,
 				4FCC1A5E2A91111A00DB57A8 /* MainMenuView.swift in Sources */,
 				4FF011362ABDE6F200EEBBC2 /* MapView.swift in Sources */,
 				4F752BC92A9F57B60060139A /* CodeScanner.swift in Sources */,

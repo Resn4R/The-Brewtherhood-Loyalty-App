@@ -8,43 +8,16 @@
 import SwiftUI
 import SwiftData
 
-struct stampIcon: View {
-    var isShowing = false
-    var body: some View {
-        Image("stamp icon")
-            .resizable()
-            .scaledToFit()
-            .rotationEffect(Angle.radians(Double.random(in: 0...359)))
-            .offset(x:CGFloat.random(in: -20...20), y: CGFloat.random(in: -20...20))
-    }
-}
 
 func coffeeTicket(single singleFreeCoffee: Bool) -> Image {
     singleFreeCoffee ? Image("Coffee Ticket Single") : Image("Coffee Ticket Multi")
 }
 
-
 struct MainMenuView: View {
-    @Query(animation: .smooth) var wallet: [StampCard]
     
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
     @State private var showMapViewSheet = false
-    @State private var showStampDetails = false
-    
-    @State private var activeCardStampCount: ((StampCard?) -> Int) = { card in
-        if let count = card?.stamps.count { return count }
-        return -1
-    }
-    @State private var storedCardsCount: (([StampCard]) -> Int) = { wallet in
-        wallet.count
-    }
-    @State private var fullCardsCount: (([StampCard]) -> Int) = { wallet in
-        wallet.filter {
-            $0.isFull()
-        }
-        .count
-    }
     
     var body: some View {
         NavigationView {
@@ -97,7 +70,7 @@ struct MainMenuView: View {
                         .padding()
                     }
                     
-                    ZStack{
+                   /* ZStack{
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.white)
                             .offset(y: -10)
@@ -148,8 +121,8 @@ struct MainMenuView: View {
                             }
                             .offset(y: 30)
                         }
-                    }
-                    
+                    } */
+                    CardBodyView()
                     Spacer()
                     
                     ZStack {
@@ -229,6 +202,98 @@ struct MainMenuView: View {
             }
         }
         .navigationBarBackButtonHidden()
+    }
+}
+
+struct CardBodyView: View {
+    @Query(animation: .smooth) var wallet: [StampCard]
+    
+    @State private var showStampDetails = false
+    @State private var activeCardStampCount: ((StampCard?) -> Int) = { card in
+        if let count = card?.stamps.count { return count }
+        return -1
+    }
+    
+    var body: some View {
+        ZStack{
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
+                .offset(y: -10)
+                .padding(.vertical, 5)
+                .padding(.horizontal, 15)
+            VStack{
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
+                    ForEach(0..<6) { index in
+                        ZStack {
+                            Circle()
+                                .stroke(lineWidth: 2)
+                                .frame(width: 75, height: 75, alignment: .center)
+                                .foregroundStyle(.backgroundColour)
+                            
+                            if activeCardStampCount(wallet.last) > index {
+                                Button {
+                                    showStampDetails.toggle()
+                                } label: {
+                                    stampIcon()
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(.vertical, 10)
+                
+                Text("Get \(6 - activeCardStampCount(wallet.last)) coffees to earn a free drink!")
+                    .offset(y:20)
+                    .foregroundStyle(.backgroundColour)
+                    .opacity(activeCardStampCount(wallet.last) == 6 ? 0 : 1)
+                
+                FreeCoffeeTicketView(activeCardStampCount: activeCardStampCount)
+            }
+        }
+    }
+}
+
+struct FreeCoffeeTicketView: View {
+    @Query var wallet: [StampCard]
+    
+    @State var activeCardStampCount: ((StampCard?) -> Int)
+    @State private var storedCardsCount: (([StampCard]) -> Int) = { wallet in
+        wallet.count
+    }
+    @State private var fullCardsCount: (([StampCard]) -> Int) = { wallet in
+        wallet.filter{ $0.isFull() }.count
+    }
+    
+    var body: some View {
+        ZStack{
+            Group {
+                coffeeTicket(single: fullCardsCount(wallet) > 1 ? false : true)
+                    .resizable()
+                    .frame(width:370, height: 200)
+                    .offset(x:1.75, y: -20)
+                    .clipped()
+                    
+                Text("\(fullCardsCount(wallet))")
+                    .foregroundStyle(.backgroundColour)
+                    .fontWeight(.heavy)
+                    .fontDesign(.serif)
+                    .font(.system(size: 20))
+                    .offset(x: -60, y: -13)
+            }
+            .opacity(fullCardsCount(wallet) > 0 ? 1 : 0)
+        }
+        .offset(y: 30)
+    }
+}
+
+struct stampIcon: View {
+    var isShowing = false
+    var body: some View {
+        Image("stamp icon")
+            .resizable()
+            .scaledToFit()
+            .rotationEffect(Angle.radians(Double.random(in: 0...359)))
+            .offset(x:CGFloat.random(in: -20...20), y: CGFloat.random(in: -20...20))
     }
 }
 
