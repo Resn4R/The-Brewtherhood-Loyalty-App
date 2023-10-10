@@ -30,58 +30,12 @@ struct MapView: View {
         name: "SwiftLeeds @ Leeds Playhouse",
         coordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683)
     )
-    
-    private let camera: MapCameraPosition = .camera(
-        MapCamera(
-            centerCoordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683),
-            distance: 1500,
-            heading: 0,
-            pitch: 30
-        )
-    )
+
     
     var body: some View {
         NavigationStack{
             VStack{
-                
-                Map(initialPosition: camera){
-                    Annotation(
-                        location.name,
-                        coordinate: location.coordinate,
-                        anchor: .bottom) {
-                            HStack{
-                                Image(systemName: "person.3.sequence")
-                                    .foregroundStyle(.red)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                                Image(systemName: "mappin")
-                                    .foregroundStyle(.red)
-                            }
-                            .padding(2)
-                        }
-                    
-                    UserAnnotation()
-                }
-                .mapStyle(.standard(elevation: .realistic))
-                
-                .background(.ultraThinMaterial)
-                .safeAreaInset(edge: .bottom) {
-                    Spacer()
-                    Button{
-                        openMapsApp(to: location)
-                    } label: {
-                        Text("Take me there")
-                            .fontDesign(.serif)
-                            .foregroundStyle(.backgroundColour)
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
-                
-                .mapControls {
-                    MapCompass()
-                    MapScaleView()
-                    MapUserLocationButton()
-                    MapPitchToggle()
-                }
+                mapViewController(location: location)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -98,6 +52,61 @@ struct MapView: View {
     }
 }
 
+struct mapViewController: View {
+    let location: Location
+    
+    private let camera: MapCameraPosition = .camera(
+        MapCamera(
+            centerCoordinate: CLLocationCoordinate2D(latitude: 53.798076204512014, longitude: -1.5343554195801683),
+            distance: 1500,
+            heading: 0,
+            pitch: 30
+        )
+    )
+    
+    var body: some View {
+        Map(initialPosition: camera){
+            Annotation(
+                location.name,
+                coordinate: location.coordinate,
+                anchor: .bottom) {
+                    HStack{
+                        Image(systemName: "person.3.sequence")
+                            .foregroundStyle(.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                        Image(systemName: "mappin")
+                            .foregroundStyle(.red)
+                    }
+                    .padding(2)
+                }
+            
+            UserAnnotation()
+        }
+        .mapStyle(.standard(elevation: .realistic))
+        .background(.ultraThinMaterial)
+        .mapControls {
+            MapCompass()
+            MapScaleView()
+            MapUserLocationButton()
+            MapPitchToggle()
+        }
+        .tint(.backgroundColour)
+        
+        .safeAreaInset(edge: .bottom) {
+            Button{
+                openMapsApp(to: location)
+            } label: {
+                    Text("Take me there")
+                        .fontDesign(.serif)
+                        .foregroundStyle(.specialColour)
+                        .backgroundStyle(.ultraThinMaterial)
+            }
+                .buttonStyle(.borderedProminent)
+                .padding(.vertical, 20)
+                .controlSize(.large)
+        }
+    }
+}
 
 #Preview {
     MapView()
