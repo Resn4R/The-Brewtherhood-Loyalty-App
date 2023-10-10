@@ -35,11 +35,9 @@ struct BrewtherApp: App {
                 ZStack{
                     BackgroundColour()
                     LauncherImage()
-                        
                 }
                 .navigationDestination(for: String.self) { view in
-                    view == "MainMenuView" ? MainMenuView()
-                    : nil
+                    view == "MainMenuView" ? MainMenuView() : nil
                 }
             }
             .onAppear {
