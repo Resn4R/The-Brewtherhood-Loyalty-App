@@ -35,20 +35,74 @@ struct MainMenuView: View {
                     
                     Spacer()
                     
-                    navBar(showMapViewSheet: showMapViewSheet)
-                        
-                }
-                .toolbar {
-                    ToolbarItem (placement: .navigationBarTrailing){
-                        Button{
-                            showInfoAlert = true
-                        } label: {
-                            Image(systemName: "info.circle")
-                                .foregroundColor(.white)
+                    //navBar(showMapViewSheet: showMapViewSheet)
+                    TabView {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundStyle(.white)
+                                .frame(width: 400, height: 100)
+                            HStack {
+                                Spacer()
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                        
+                                    Button{} label: {
+                                        Image(systemName: "house")
+                                            .foregroundStyle(.white)
+                                            .font(.title)
+                                    }
+                                }
+                                .offset(x: -20)
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    NavigationLink(destination: CameraView(), label: {
+                                        Image(systemName: "camera")
+                                            .foregroundStyle(.white)
+                                            .font(.title)
+                                    })
+                                }
+                                
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    Button { showMapViewSheet.toggle() } label: {
+                                        Image(systemName: "map")
+                                            .foregroundColor(.white)
+                                            .font(.title)
+                                    }
+                                }
+                                .offset(x: 10)
+                                
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    Button { showInfoAlert.toggle() } label: {
+                                        Image(systemName: "info.circle")
+                                            .foregroundColor(.white)
+                                            .font(.title)
+                                    }
+                                }
+                                .offset(x: 20)
+                                Spacer()
+                            }
+                            .offset(y: -10)
                         }
                     }
+                    .offset(y: 50)
+                        
                 }
-                .ignoresSafeArea()
                 
                 .sheet(isPresented: $showMapViewSheet) {
                     MapView()
