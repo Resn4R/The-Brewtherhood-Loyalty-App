@@ -103,6 +103,7 @@ struct MainMenuView: View {
                     .offset(y: 50)
                         
                 }
+                .ignoresSafeArea()
                 
                 .sheet(isPresented: $showMapViewSheet) {
                     MapView()
@@ -215,6 +216,7 @@ struct stampIcon: View {
 struct header: View {
     var body: some View {
         HStack {
+            Spacer()
             Image("brand logo")
                 .resizable()
                 .scaledToFit()
@@ -252,8 +254,10 @@ struct header: View {
                 .padding(.vertical, 10)
             }
             .foregroundColor(.white)
-            .offset(x: -30)
+           // .offset(x: -15)
             .padding()
+            
+            Spacer()
         }
     }
 }
