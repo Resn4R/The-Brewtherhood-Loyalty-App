@@ -9,14 +9,17 @@ import SwiftData
 import Foundation
 import UserNotifications
 
-class NotificationCentre: ObservableObject {
-    @Published var areNotificationsEnabled = false
+@Model
+class NotificationCentre {
+    var areNotificationsEnabled: Bool = false
     
-    public static let shared = NotificationCentre()
+    init(areNotificationsEnabled: Bool) {
+        self.areNotificationsEnabled = areNotificationsEnabled
+    }
     
-    static func sendNotification() {
+    func sendNotification() {
         
-        guard shared.areNotificationsEnabled else {
+        guard areNotificationsEnabled else {
             print("Error: Can't send notifications, permissions not enabled.")
             return
         }
@@ -48,14 +51,14 @@ class NotificationCentre: ObservableObject {
         UNUserNotificationCenter.current().add(request)
     }
     
-    static func requestNotificationAccess() {
+    func requestNotificationAccess() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
                 print ("all set")
                 self.sendNotification()
             } else if let error = error {
                 print(error.localizedDescription)
-                shared.areNotificationsEnabled = false
+                self.areNotificationsEnabled = false
             }
         }
     }

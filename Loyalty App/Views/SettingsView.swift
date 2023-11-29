@@ -5,30 +5,39 @@
 //  Created by Vito Borghi on 28/11/2023.
 //
 
-import UserNotifications
+//import UserNotifications
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
-    @StateObject private var notificationCentre = NotificationCentre()
+    @Environment (\.modelContext) var context
+    @Query var notificCentre: [NotificationCentre]
+    
+    @State private var notificationsEnabled: Bool = true
+
     
     var body: some View {
-        NavigationStack{
-           
-            Toggle("Enable Notifications", systemImage: "", isOn: $notificationCentre.areNotificationsEnabled)
-                .onTapGesture { NotificationCentre.requestNotificationAccess() }
-                .padding()
-            
-            Spacer()
-            
-                .navigationTitle("Settings")
-                .navigationBarTitleDisplayMode(.automatic)
+        NavigationView{
+            ZStack {
+                LinearGradient(colors: [.backgroundColour], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                VStack {
+                    Toggle("Enable Notifications", isOn: $notificationsEnabled)
+                        .onTapGesture {
+                            notificCentre[0].areNotificationsEnabled = notificationsEnabled
+                        }
+                        .padding()
+                    
+                    Spacer()
+                }
+            }
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.automatic)
         }
+        .preferredColorScheme(.dark)
     }
-    
 
 }
-
-
 
 #Preview {
     SettingsView()

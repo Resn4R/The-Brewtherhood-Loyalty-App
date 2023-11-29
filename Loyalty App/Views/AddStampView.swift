@@ -15,7 +15,7 @@ struct AddStampView: View {
     //@StateObject private var notificationCentre = NotificationCentre()
     
     @Query var wallet: [StampCard]
-    
+    @Query var notifications: [NotificationCentre]
     
     @State private var activeCardStampCount: ((StampCard?) -> Int) = { stampCard in
         if let stamps = stampCard?.stamps.count { return stamps }
@@ -32,7 +32,7 @@ struct AddStampView: View {
              if activeCard.isFull() {
                  freeCoffee.toggle()
                  context.insert(activeCard)
-                 NotificationCentre.sendNotification()
+                 notifications[0].sendNotification()
             }
         }
         try? context.save()

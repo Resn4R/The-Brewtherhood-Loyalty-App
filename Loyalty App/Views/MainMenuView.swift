@@ -18,10 +18,6 @@ struct MainMenuView: View {
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
     @State private var showMapViewSheet = false
-    @StateObject private var notificationCentre = NotificationCentre()
-    //to-do: find a way to trigger sendNotification() when notifications are enabled and there is a fully stamped card in the wallet
-    // maybe @query var wallet: [StampCard] in SettingsView() and sendNotification() at the end of requestAccess()?
-
     
     var body: some View {
         NavigationView {
@@ -36,13 +32,9 @@ struct MainMenuView: View {
 
                     CardBodyView()
                     
-                    Spacer()
+                    //Spacer()
                     
-                    //TabView {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 5)
-                                .foregroundStyle(.white)
-                                .frame(width: 400, height: 100)
+                    TabView {
                             HStack {
                                 Spacer()
                                 ZStack {
@@ -69,6 +61,8 @@ struct MainMenuView: View {
                                             .font(.title)
                                     })
                                 }
+                                .offset(x:-7)
+                                
                                 Spacer()
                                 
                                 ZStack {
@@ -81,26 +75,32 @@ struct MainMenuView: View {
                                             .font(.title)
                                     }
                                 }
+                                .offset(x: 7)
+                                
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    Button { showInfoAlert.toggle() } label: {
+                                        Image(systemName: "info.circle")
+                                            .foregroundColor(.white)
+                                            .font(.title)
+                                    }
+                                }
                                 .offset(x: 20)
                                 Spacer()
-                            }
-                            .offset(y: -10)
+
                         }
 
                     }
-                    navBar(showMapViewSheet: showMapViewSheet)
+                        .offset(y: 50)
+                    
+                    //navBar(showMapViewSheet: showMapViewSheet)
                         
                 }
-                .toolbar {
-                    ToolbarItem (placement: .navigationBarTrailing){
-                        Button{
-                            showInfoAlert = true
-                        } label: {
-                            Image(systemName: "info.circle")
-                                .foregroundColor(.white)
-                        }
-                    }
-                }
+
                 .ignoresSafeArea()
                 
                 .sheet(isPresented: $showMapViewSheet) {
@@ -113,6 +113,15 @@ struct MainMenuView: View {
                     Text("The promotion applies to all handcrafted coffee, hot or iced, of any size.")
                 }
                 .toolbarColorScheme(.dark, for: .tabBar)
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        SettingsView()
+                    } label: {
+                        Image(systemName: "gear")
+                    }
+                }
             }
         }
         .navigationBarBackButtonHidden()
@@ -132,8 +141,7 @@ struct CardBodyView: View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
                 .fill(.white)
-                .offset(y: -10)
-                .padding(.vertical, 5)
+                .offset(y: 10)
                 .padding(.horizontal, 15)
             VStack{
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
@@ -162,7 +170,10 @@ struct CardBodyView: View {
                     .opacity(activeCardStampCount(wallet.last) == 6 ? 0 : 1)
                 
                 FreeCoffeeTicketView(activeCardStampCount: activeCardStampCount)
+                    .scaleEffect(0.95)
             }
+            .offset(y: 15)
+            .padding(.horizontal)
         }
     }
 }
@@ -218,6 +229,7 @@ struct header: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 175 , height: 175)
+                .offset(x: 10)
             
             Spacer()
             
@@ -251,7 +263,7 @@ struct header: View {
                 .padding(.vertical, 10)
             }
             .foregroundColor(.white)
-            .offset(x: -30)
+            .offset(x: -15)
             .padding()
         }
     }
