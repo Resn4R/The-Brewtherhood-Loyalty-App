@@ -6,206 +6,99 @@
 	<array>
 		<dict>
 			<key>children</key>
-			<array>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>66</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>65</string>
-							<key>Timestamp</key>
-							<string>717709083.065763</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Loyalty App/Wallet.swift</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>    init() {
-</string>
-						<key>leading</key>
-						<string>    }
-    
-</string>
-						<key>trailing</key>
-						<string>        Task {
-            if let storageData = UserDefaults.standard.data(forKey: storageKey) {
-                if let decoded = try?  JSONDecoder().decode([StampCard].self, from: storageData) {
-</string>
-					</dict>
-					<key>title</key>
-					<string>make async</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>54</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>53</string>
-							<key>Timestamp</key>
-							<string>717709083.0657949</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Loyalty App/Wallet.swift</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>    func save()  {
-</string>
-						<key>leading</key>
-						<string>    }
-    
-</string>
-						<key>trailing</key>
-						<string>        Task {
-            if let encoded = try? JSONEncoder().encode(storedCards) {
-                defaults.set(encoded, forKey: storageKey)
-</string>
-					</dict>
-					<key>title</key>
-					<string>make async</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>119</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>118</string>
-							<key>Timestamp</key>
-							<string>717708887.873557</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Loyalty App/MainMenuView.swift</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>                            ZStack{
-</string>
-						<key>leading</key>
-						<string>                                .foregroundStyle(.backgroundColour)
-                            
-</string>
-						<key>trailing</key>
-						<string>                                Group {
-                                    coffeeTicket(single: storedCardsCount &gt; 1 ? false : true)
-                                        .resizable()
-</string>
-					</dict>
-					<key>title</key>
-					<string>Free coffee ticket change colour</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-				<dict>
-					<key>destination</key>
-					<dict>
-						<key>location-parameters</key>
-						<dict>
-							<key>EndingColumnNumber</key>
-							<string>0</string>
-							<key>EndingLineNumber</key>
-							<string>93</string>
-							<key>StartingColumnNumber</key>
-							<string>0</string>
-							<key>StartingLineNumber</key>
-							<string>92</string>
-							<key>Timestamp</key>
-							<string>717708887.8739311</string>
-						</dict>
-						<key>rebasable-url</key>
-						<dict>
-							<key>base</key>
-							<string>workspace</string>
-							<key>payload</key>
-							<dict>
-								<key>relative-path</key>
-								<string>Loyalty App/MainMenuView.swift</string>
-							</dict>
-						</dict>
-					</dict>
-					<key>is-complete</key>
-					<true/>
-					<key>text-context</key>
-					<dict>
-						<key>focused</key>
-						<string>                        VStack{
-</string>
-						<key>leading</key>
-						<string>                            .padding(.vertical, 15)
-                            .padding(.horizontal, 15)
-</string>
-						<key>trailing</key>
-						<string>                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 3), spacing: 20) {
-                                ForEach(0..&lt;6) { index in
-                                    ZStack {
-</string>
-					</dict>
-					<key>title</key>
-					<string>refactor to a grid</string>
-					<key>type</key>
-					<string>bookmark</string>
-				</dict>
-			</array>
+			<array/>
 			<key>title</key>
 			<string>To-Do list</string>
 			<key>type</key>
 			<string>group</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>4</string>
+					<key>EndingLineNumber</key>
+					<string>21</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>21</string>
+					<key>Timestamp</key>
+					<string>722943853.725893</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Loyalty App/Views/MainMenuView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>    </string>
+				<key>leading</key>
+				<string>    @State private var showMapViewSheet = false
+    @StateObject private var notificationCentre = NotificationCentre()
+</string>
+				<key>trailing</key>
+				<string>//to-do: find a way to trigger sendNotification() when notifications are enabled and there is a fully stamped card in the wallet
+    // maybe @query var wallet: [StampCard] in SettingsView() and sendNotification() at the end of requestAccess()?
+
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>4</string>
+					<key>EndingLineNumber</key>
+					<string>22</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>22</string>
+					<key>Timestamp</key>
+					<string>722943864.625074</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Loyalty App/Views/MainMenuView.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>    </string>
+				<key>leading</key>
+				<string>    @StateObject private var notificationCentre = NotificationCentre()
+    //to-do: find a way to trigger sendNotification() when notifications are enabled and there is a fully stamped card in the wallet
+</string>
+				<key>trailing</key>
+				<string>// maybe @query var wallet: [StampCard] in SettingsView() and sendNotification() at the end of requestAccess()?
+
+    
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
 		</dict>
 	</array>
 </dict>

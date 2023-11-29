@@ -18,6 +18,9 @@ struct MainMenuView: View {
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
     @State private var showMapViewSheet = false
+    @StateObject private var notificationCentre = NotificationCentre()
+    //to-do: find a way to trigger sendNotification() when notifications are enabled and there is a fully stamped card in the wallet
+    // maybe @query var wallet: [StampCard] in SettingsView() and sendNotification() at the end of requestAccess()?
 
     
     var body: some View {
@@ -35,6 +38,56 @@ struct MainMenuView: View {
                     
                     Spacer()
                     
+                    //TabView {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundStyle(.white)
+                                .frame(width: 400, height: 100)
+                            HStack {
+                                Spacer()
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                        
+                                    Button{} label: {
+                                        Image(systemName: "house")
+                                            .foregroundStyle(.white)
+                                            .font(.title)
+                                    }
+                                }
+                                .offset(x: -20)
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    NavigationLink(destination: CameraView(), label: {
+                                        Image(systemName: "camera")
+                                            .foregroundStyle(.white)
+                                            .font(.title)
+                                    })
+                                }
+                                Spacer()
+                                
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.backgroundColour)
+                                        .frame(width: 60, height: 60)
+                                    Button { showMapViewSheet.toggle() } label: {
+                                        Image(systemName: "map")
+                                            .foregroundColor(.white)
+                                            .font(.title)
+                                    }
+                                }
+                                .offset(x: 20)
+                                Spacer()
+                            }
+                            .offset(y: -10)
+                        }
+
+                    }
                     navBar(showMapViewSheet: showMapViewSheet)
                         
                 }

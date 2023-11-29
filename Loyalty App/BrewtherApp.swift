@@ -13,8 +13,7 @@ import SwiftUI
 struct BrewtherApp: App {
     @State var path = NavigationPath()
     
-    @MainActor
-    let appContainer: ModelContainer = {
+    @MainActor let appContainer: ModelContainer = {
         do {
             let container = try ModelContainer(for: StampCard.self)
             
@@ -24,9 +23,9 @@ struct BrewtherApp: App {
             guard try container.mainContext.fetch(stampCardFetchDescriptor).count == 0 else { return container }
             
             container.mainContext.insert(StampCard())
+            
             return container
-        }
-        catch { fatalError("Failed to create container") }
+        } catch { fatalError("Failed to create container") }
     }()
     
     var body: some Scene {

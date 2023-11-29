@@ -12,6 +12,8 @@ struct AddStampView: View {
     @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismissView
     
+    //@StateObject private var notificationCentre = NotificationCentre()
+    
     @Query var wallet: [StampCard]
     
     
@@ -30,6 +32,7 @@ struct AddStampView: View {
              if activeCard.isFull() {
                  freeCoffee.toggle()
                  context.insert(activeCard)
+                 NotificationCentre.sendNotification()
             }
         }
         try? context.save()
