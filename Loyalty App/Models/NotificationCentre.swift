@@ -43,8 +43,10 @@ class NotificationCentre {
         content.subtitle = "Why don't you go to your friendly neighbourhood's coffee shop for a free treat? You deserve it."
         content.sound = UNNotificationSound.default
                                                                 // one week in seconds
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 604_800, repeats: false)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 604_800, repeats: false)
+        
+        // testing purposes
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
