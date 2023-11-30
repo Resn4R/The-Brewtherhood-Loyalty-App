@@ -12,12 +12,11 @@ import SwiftUI
 @main
 struct BrewtherApp: App {
     @State var path = NavigationPath()
-    @StateObject var settings = Settings()
     
     
     @MainActor let appContainer: ModelContainer = {
         do {
-            let container = try ModelContainer(for: StampCard.self)
+            let container = try ModelContainer(for: StampCard.self, NotificationCentre.self)
             
             var stampCardFetchDescriptor = FetchDescriptor<StampCard>()
             stampCardFetchDescriptor.fetchLimit = 1
@@ -48,7 +47,8 @@ struct BrewtherApp: App {
             }
         }
         .modelContainer(appContainer)
-        .environmentObject(settings)
+        //.modelContainer(for: NotificationCentre.self)
+        
     }
 }
 

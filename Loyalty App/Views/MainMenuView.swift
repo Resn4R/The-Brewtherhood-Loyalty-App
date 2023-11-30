@@ -18,6 +18,7 @@ struct MainMenuView: View {
     @State private var showInfoAlert = false
     @State private var showWalletViewSheet = false
     @State private var showMapViewSheet = false
+    @StateObject var settings = Settings()
     
     var body: some View {
         NavigationView {
@@ -96,6 +97,7 @@ struct MainMenuView: View {
 
                     }
                         .offset(y: 50)
+                        .environmentObject(settings)
                     
                     //navBar(showMapViewSheet: showMapViewSheet)
                         
@@ -325,4 +327,6 @@ struct navBar: View {
 
 #Preview {
     MainMenuView()
+        .environmentObject(Settings())
+        .modelContainer(for: [StampCard.self, NotificationCentre.self])
 }
