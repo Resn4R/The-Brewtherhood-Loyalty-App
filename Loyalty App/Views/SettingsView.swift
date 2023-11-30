@@ -11,9 +11,14 @@ import SwiftData
 
 struct SettingsView: View {
     @Environment (\.modelContext) var context
-    @Query var notificCentre: [NotificationCentre]
+    @EnvironmentObject var settings: Settings
     
-    @State private var notificationsEnabled: Bool = true
+    @State private var notificationsEnabled: Bool
+    
+    init() {
+        notificationsEnabled = false
+        notificationsEnabled = settings.userNotifications.areNotificationsEnabled
+    }
 
     
     var body: some View {
@@ -24,7 +29,7 @@ struct SettingsView: View {
                 VStack {
                     Toggle("Enable Notifications", isOn: $notificationsEnabled)
                         .onTapGesture {
-                            notificCentre[0].areNotificationsEnabled = notificationsEnabled
+                            settings.userNotifications.areNotificationsEnabled = notificationsEnabled
                         }
                         .padding()
                     

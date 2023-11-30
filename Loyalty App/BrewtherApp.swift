@@ -12,6 +12,8 @@ import SwiftUI
 @main
 struct BrewtherApp: App {
     @State var path = NavigationPath()
+    @StateObject var settings = Settings()
+    
     
     @MainActor let appContainer: ModelContainer = {
         do {
@@ -46,6 +48,7 @@ struct BrewtherApp: App {
             }
         }
         .modelContainer(appContainer)
+        .environmentObject(settings)
     }
 }
 

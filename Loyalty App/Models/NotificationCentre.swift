@@ -9,7 +9,8 @@ import SwiftData
 import Foundation
 import UserNotifications
 
-@Model
+
+@Model 
 class NotificationCentre {
     var areNotificationsEnabled: Bool = false
     
@@ -65,4 +66,12 @@ class NotificationCentre {
         }
     }
     
+}
+
+class Settings: ObservableObject {
+    @Published var userNotifications: NotificationCentre
+    
+    init() {
+        self.userNotifications = NotificationCentre(areNotificationsEnabled: false)
+    }
 }
